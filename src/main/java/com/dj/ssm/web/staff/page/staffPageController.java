@@ -1,4 +1,4 @@
-package com.dj.ssm.web.staff;
+package com.dj.ssm.web.staff.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
