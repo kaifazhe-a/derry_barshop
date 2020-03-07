@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dj.ssm.mapper.staff.StaffMapper">
+
+    <select id="findStaffall" resultType="com.dj.ssm.pojo.StaffBo">
+        SELECT
+            ff.id,
+            ff.staff_phone_email,
+            ff.staff_name,
+            ff.staff_img,
+            ct.dict_name as baseStaffStatus,
+            role.role_name,
+            ff.creation_time
+        FROM
+            barber_staff ff
+        JOIN barber_dict ct ON ff.staff_status = ct.id
+        JOIN barber_staff_role le on le.staff_id = ff.id
+        JOIN barber_role role on le.role_id = role.id
+        WHERE
+	        ff.staff_status != 7
+    </select>
+
+</mapper>
