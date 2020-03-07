@@ -42,7 +42,15 @@ public class ProductController {
      * 商品添加
      */
     @RequestMapping("add")
-    public ResultModel<Object> add(ProductPojo productPojo) throws Exception {
+    public ResultModel<Object> add(MultipartFile file, ProductPojo productPojo) throws Exception {
+        // 上传图片
+        String upload = QiNiuYunUtil.upload(file);
+
+        if ("1".equals(upload)) {
+            new ResultModel<>().error("服务器在开小差，请稍后再试1");
+        }
+        // 给商品表添加值
+        productPojo.setProImg(upload);
         productService.addProduct(productPojo);
         return new ResultModel<>().success();
     }
