@@ -15,9 +15,6 @@
   <div class="layui-header">
     <div class="layui-logo">德瑞家的理发店⭐</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
-    <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="<%=request.getContextPath() %>/user/toLogin" target="right">返回登录</a></li>
-    </ul>
 
     <ul class="layui-nav layui-layout-right">
 
@@ -26,7 +23,7 @@
           ${user.userName}
         </a>
       </li>
-      <li class="layui-nav-item"><a href="<%=request.getContextPath() %>/user/toLogin" target="right">👉返回登录</a></li>
+      <li class="layui-nav-item"><a href="<%=request.getContextPath() %>/user/toLogin" target="right">👉退出</a></li>
     </ul>
   </div>
 </div>
