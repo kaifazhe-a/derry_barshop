@@ -10,10 +10,10 @@
 </head>
 
 	<frameset rows="8%,*" frameborder="no">
-		<frame src="<%=request.getContextPath()%>/to/top?token=${token}" name="top">
+		<frame src="<%=request.getContextPath()%>/to/top" name="top">
 		<frameset cols="12%,*">
-			<frame src="<%=request.getContextPath()%>/to/left?token=${token}" name="left">
-			<frame src="<%=request.getContextPath()%>/to/right?token=${token}" name="right">
+			<frame src="<%=request.getContextPath()%>/to/left" name="left">
+			<frame src="<%=request.getContextPath()%>/to/right" name="right">
 		</frameset>
 	</frameset>
 	

@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="LightCyan">
-	<center><h1>你来了！！！</h1></center>
+	<center><h1>欢迎来到德瑞家的理发店！！！</h1></center>
 </body>
 <script type="text/javascript">
 

@@ -9,8 +9,17 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/res/layui/css/layui.css">
   <script type="text/javascript" src="<%=request.getContextPath()%>/res/js/jquery-1.12.4.min.js"></script>
 </head>
-<body class="layui-layout-body"  bgcolor="#F0E68C">
-          <a href="<%=request.getContextPath() %>/user/toShow?token=${token}" target="right"><h2>用户展示</h2></a>
+<body class="layui-layout-body" >
+<div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item">
+          <a href="<%=request.getContextPath() %>/itme/toShow" target="right">理发人⭐</a>
+        </li>
+      </ul>
+    </div>
+</div>
 </body>
 <SCRIPT type="text/javascript">
 	/* $(function(){
