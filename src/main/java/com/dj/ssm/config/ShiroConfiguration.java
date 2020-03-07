@@ -56,12 +56,13 @@ public class ShiroConfiguration {
         filters.put("/user/toUserAdd", "anon"); // 去注册
         filters.put("/user/userAdd", "anon"); // 注册
         filters.put("/user/toForgetPwd", "anon"); // 忘记密码
-        filters.put("/user/forgetPwd", "anon"); // 设置新密码
-        filters.put("/user/toUpdatePwd", "anon"); // to 修改密码
-        filters.put("/user/updatePwd", "anon"); // 修改密码
-        filters.put("/user/sendCode", "anon"); // 发送短信验证码
-        filters.put("/user/deWeight", "anon"); // 验证重复
-        filters.put("/static/**", "anon"); // 静态资源
+        filters.put("/itme/toShow", "anon"); // 设置新密码
+        filters.put("/itme/show", "anon"); // 设置新密码
+        filters.put("/to/index", "anon"); // 发送短信验证码
+        filters.put("/to/top", "anon"); // 发送短信验证码
+        filters.put("/to/left", "anon"); // 发送短信验证码
+        filters.put("/to/right", "anon"); // 发送短信验证码
+        filters.put("/res/**", "anon"); // 静态资源
 
         // authc 表示必须认证才可访问
         filters.put("/**", "authc");
