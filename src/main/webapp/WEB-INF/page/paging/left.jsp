@@ -15,37 +15,11 @@
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
         <li class="layui-nav-item">
-          <a href="<%=request.getContextPath() %>/itme/toShow" target="right">理发人⭐</a>
+          <a href="<%=request.getContextPath()%>/itme/toShow" target="right">店内项目⭐</a>
+          <a href="<%=request.getContextPath()%>/product/toShow" target="right">商品展示⭐</a>
         </li>
       </ul>
     </div>
 </div>
 </body>
-<SCRIPT type="text/javascript">
-	/* $(function(){
-		$.fn.zTree.init($("#treeDemo"), setting, data.data);
-	}); */
-	/* 		var setting = {
-			data: {
-				simpleData: {
-					enable: true,
-					idKey:"id",
-					pIdKey: "baseId",
-				},
-				key: {
-					name: "baseName"
-				}
-			}
-		};
-		
-		$(function(){
-			$.post(
-				"${ctx}/zTree/showZTree?tokenName="+'${tokenName}',
-				{},
-				function(data){
-					$.fn.zTree.init($("#treeDemo"), setting, data.data);
-				}
-			)
-		}); */
-	</SCRIPT>
 </html>

@@ -7,20 +7,14 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/res/layui/css/layui.css">
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/layui/layui.all.js"></script>
-<title>理发项目展示</title>
+<title>商品展示</title>
 </head>
 <body bgcolor="LightCyan">
-<%--<span style="float: right" id="pShow" >
-    <a href=""><span style="color: #1E9FFF">首页</span></a>
-    <a href="javascript:void(0)" onclick="toLogin()"  id="login"><span style="color: #1E9FFF">登录</span></a>
-    <a href="javascript:void(0)" onclick="toAdd()"><span style="color: #1E9FFF">注册</span></a>
-    <a href="javascript:void(0)" onclick="toShopCar()"><span style="color: #1E9FFF">我的购物车</span></a>
-</span>--%>
 <form id="frm">
     名称：<input type="text" name="productName" /><br>
     价格：<input type="text" name="max" /> ~~ <input type="text" name="min" /><br>
     <input type="hidden" value="1" name="pageNo" id="page"/>
-    <input type="button" value="搜索" onclick="findProduct()"/><br>
+    <input type="button" value="搜索" onclick="findProduct()" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary"/><br>
 </form>
 <center>
     <table class="layui-table">
@@ -30,10 +24,13 @@
             <col>
         </colgroup>
     <tr>
-        <td>理发项目</td>
-        <td>理发价格</td>
-        <td>理发时间</td>
+        <td><input type="button" onclick="addPro()" value="进货" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary"/></td>
+    </tr>
+    <tr>
+        <td>商品名</td>
         <td>参考图片</td>
+        <td>价格</td>
+        <td>功效</td>
         <td>操作</td>
     </tr>
     <tbody id="tbd">
@@ -43,18 +40,6 @@
 </center>
 </body>
 <script type="text/javascript">
-
-   /* $(function () {
-        var nickName = cookie.get("nickName");
-        var userName = cookie.get("userName");
-        var token = cookie.get("token");
-        if (nickName != undefined && nickName != "") {
-            $("#login").html(userName+"("+nickName+")");
-            $("#login").attr("href", "<%=request.getContextPath() %>/to/index?token="+token);
-        }
-        show();
-    })*/
-
     //页面加载事件
     $(function() {
         show();
@@ -63,28 +48,27 @@
     function findProduct(){
         show();
     }
-
-    //展示的方法
+    // 商品展示
     function show() {
         $.post(
-        "<%=request.getContextPath()%>/itme/show",
+        "<%=request.getContextPath()%>/product/show",
         $("#frm").serialize(),
         function(data) {
             var html="";
             var pageHtml="";
             for (var i = 0; i < data.data.list.length; i++) {
-                    var itme = data.data.list[i];
+                    var pro = data.data.list[i];
                     html += "<tr>";
-                    html+="<input type='hidden' id='"+itme.id+"'/>"
-                    html += "<td>"+itme.itmeName+"</td>";
-                    html += "<td>￥"+itme.itmePrice+"</td>";
-                    html += "<td>"+itme.itmeTime+"分钟</td>";
-                    html += "<td>"+111+"</td>";
-                    html += "<td><input type='button' value='选择理发师' onclick='xiaofei("+itme.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    html+="<input type='hidden' id='"+pro.id+"'/>"
+                    html += "<td>"+pro.proName+"</td>";
+                    html += "<td><img src='"+pro.proImg+"'></td>";
+                    html += "<td>￥"+pro.proPrice+"</td>";
+                    html += "<td>"+pro.proEffect+"</td>";
+                    html += "<td><input type='button' value='购买' onclick='buy("+pro.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
-                var pageNo = $("#page").val()
+                var pageNo = $("#page").val();
                 var pages = data.data.pages;
                 pageHtml+="<input type='button' onclick='page("+(parseInt(pageNo)-1)+","+pages+")' value='上一页' /> <input type='button' onclick='page("+(parseInt(pageNo)+1)+","+pages+")' value='下一页' />"
                 $("#pageNo").html(pageHtml)
@@ -103,34 +87,37 @@
         show();
     }
 
-    function toAdd(){
+    /**
+     * 购买商品
+     */
+    function buy(){
         layer.open({
             type: 2 //Page层类型
             ,area: ['500px', '400px']
-            ,title: '你好。'
+            ,title: '购买商品'
             ,shade: 0.6 //遮罩透明度
             ,maxmin: true //允许全屏最小化
             ,anim: 1 //0-6的动画形式，-1不开启
             ,content: "<%=request.getContextPath()%>/user/toAdd"
         });
     }
-    // 去商品详细
-    function toShopDetail(proId){
-        window.location.href="<%=request.getContextPath()%>/product/toShopDetail?id="+proId
-    }
-    //去登录页面
-    function toLogin(){
+
+    /**
+     * 商品添加(进货)
+     */
+    function addPro(){
         layer.open({
-            type: 2,
-            title: '用户登录面页',
-            shadeClose: false,
-            shade: 0.6,
-            area: ['380px', '90%'],
-            content: "<%=request.getContextPath()%>/user/toLogin"
+            type: 2 //Page层类型
+            ,area: ['500px', '400px']
+            ,title: '商品添加(进货)'
+            ,shade: 0.6 //遮罩透明度
+            ,maxmin: true //允许全屏最小化
+            ,anim: 1 //0-6的动画形式，-1不开启
+            ,content: "<%=request.getContextPath()%>/product/toAdd"
         });
     }
-    if(window.top.document.URL != document.URL){
-        window.top.location = document.URL;
-    }
+
+
+
 </script>
 </html>
