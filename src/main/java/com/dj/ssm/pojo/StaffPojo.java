@@ -43,11 +43,6 @@ public class StaffPojo {
     private String phoneEmailCode;
 
     /**
-     * 职位级别(1店长,2经理,3收银员,4首席设计师,5资深设计师,6学徒)
-     */
-    private Integer staffLevel;
-
-    /**
      * 员工头像
      */
     private String staffImg;
@@ -67,5 +62,8 @@ public class StaffPojo {
      */
     private Date updateTime;
 
-
+    /**
+     * 密码盐
+     */
+    private String  salt;
 }

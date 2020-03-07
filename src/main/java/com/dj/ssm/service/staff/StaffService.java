@@ -13,4 +13,24 @@ public interface StaffService extends IService<StaffPojo> {
      * @return
      */
     List<StaffBo> findStaffAll() throws Exception;
+
+    /**
+     * 用户登录
+     * @return
+     */
+    StaffPojo findStaffNameAndPwd(StaffPojo staffPojo) throws Exception;
+
+    /**
+     * 添加客户
+     * @param staffPojo
+     */
+    void addStaffMassage(StaffPojo staffPojo) throws Exception;
+
+    /**
+     * validate 前台用户去重方法
+     * @param staffPojo
+     * @return
+     */
+    StaffPojo findUserByName(StaffPojo staffPojo) throws Exception;
+
 }
