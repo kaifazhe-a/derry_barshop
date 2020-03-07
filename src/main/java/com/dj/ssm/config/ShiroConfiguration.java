@@ -52,16 +52,16 @@ public class ShiroConfiguration {
         Map<String, String> filters = new HashMap<>();
 
         // anon 表示不需要认证
-        filters.put("/user/login", "anon"); // 登录
-        filters.put("/user/toUserAdd", "anon"); // 去注册
-        filters.put("/user/userAdd", "anon"); // 注册
-        filters.put("/user/toForgetPwd", "anon"); // 忘记密码
-        filters.put("/itme/toShow", "anon"); // 设置新密码
-        filters.put("/itme/show", "anon"); // 设置新密码
-        filters.put("/to/index", "anon"); // 发送短信验证码
-        filters.put("/to/top", "anon"); // 发送短信验证码
-        filters.put("/to/left", "anon"); // 发送短信验证码
-        filters.put("/to/right", "anon"); // 发送短信验证码
+        filters.put("/itme/toShow", "anon"); // 店内项目展示
+        filters.put("/itme/show", "anon");
+        filters.put("/product/toShow", "anon"); // 商品展示
+        filters.put("/product/show", "anon");
+        filters.put("/product/toAdd", "anon"); // 商品添加
+        filters.put("/product/add", "anon");
+        filters.put("/to/index", "anon");
+        filters.put("/to/top", "anon");
+        filters.put("/to/left", "anon");
+        filters.put("/to/right", "anon");
         filters.put("/res/**", "anon"); // 静态资源
 
         // authc 表示必须认证才可访问

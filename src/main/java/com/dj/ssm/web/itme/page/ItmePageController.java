@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/itme/")
 public class ItmePageController {
 
-
+    /**
+     * to 店内项目展示
+     * @return
+     */
     @RequestMapping("toShow")
-    public String index() {
+    public String toShow() {
         return "itme/show";
     }
 
