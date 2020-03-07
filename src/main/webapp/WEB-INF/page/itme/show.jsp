@@ -129,8 +129,8 @@
             content: "<%=request.getContextPath()%>/user/toLogin"
         });
     }
-    if(window.top.document.URL != document.URL){
-        window.top.location = document.URL;
-    }
+   if(window.top.document.URL != document.URL){
+       window.top.location = document.URL;
+   }
 </script>
 </html>
