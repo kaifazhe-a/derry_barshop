@@ -80,7 +80,7 @@
                     html += "<td>￥"+itme.itmePrice+"</td>";
                     html += "<td>"+itme.itmeTime+"分钟</td>";
                     html += "<td>"+111+"</td>";
-                    html += "<td><input type='button' value='选择理发师' onclick='xiaofei("+itme.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    html += "<td><input type='button' value='选择理发师' onclick='xiaofei("+itme.roleId+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
