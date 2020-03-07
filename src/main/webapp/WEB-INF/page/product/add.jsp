@@ -53,35 +53,39 @@
 <script>
 
 
-    // 商品添加
+
+    /**
+     * 添加商品
+     */
     function addProduct() {
-        $.post(
-            "<%=request.getContextPath()%>/product/add",
-            $("#fm").serialize(),
-            function(data) {
-                if(data.code != 200) {
-                    layer.alert(data.msg, {
-                        icon: 5,
-                        area: ['280px', '190px'],
-                        skin: 'layui-layer-lan',
-                        class: 'layui-bg-black',
-                        title: '商品入库',
-                        shade: 0.5, //遮罩透明度
-                        anim: 1, //0-6的动画形式，-1不开启
-                    });
-                    return;
-                }
-                layer.alert("商品入库成功", {
-                    icon: 1,
-                    area: ['280px', '190px'],
-                    skin: 'layui-layer-lan',
-                    title: '商品入库',
-                    shade: 0.5, //遮罩透明度
-                    anim: 1, //0-6的动画形式，-1不开启
+        debugger
+        var index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+
+        var formData = new FormData($("#fm")[0]);
+        //七牛雲上传图片只能ajax提交
+        $.ajax({
+            type: 'post',
+            url: "<%=request.getContextPath()%>/product/add",
+            data: formData,
+            /* data:$("#file").val(), */
+            cache: false, //上传文件不需要缓存
+            processData: false,//告诉jQuery不要去处理发送的数据
+            contentType: false,//告诉jQuery不要去设置Content-Type请求
+            success: function (result) {
+                layer.msg(result.msg, {
+                    icon: 6,
+                    time: 1000
                 }, function () {
-                    parent.location.href = "<%=request.getContextPath()%>/product/toShow";
+                    layer.close(index)
+                    if (result.code == 200) {
+                        parent.location.href = "<%=request.getContextPath()%>/product/toShow";
+                    }
                 });
-            });
+            }
+        });
+
     }
 
 </script>
