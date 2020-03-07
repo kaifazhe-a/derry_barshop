@@ -16,6 +16,7 @@ public class DictPojo {
 
     /**
      * 字典id
+     * 99
      */
     @TableId(type = IdType.AUTO)
     private Integer id;
