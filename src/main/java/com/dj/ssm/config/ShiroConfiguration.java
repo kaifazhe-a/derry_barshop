@@ -1,3 +1,4 @@
+/*
 package com.dj.ssm.config;
 
 import org.apache.shiro.mgt.SecurityManager;
@@ -11,22 +12,28 @@ import org.springframework.context.annotation.DependsOn;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  * Shiro配置
- */
+ *//*
+
 @Configuration
 @DependsOn("shiroRealm") // 表示依赖的bean
 public class ShiroConfiguration {
 
-    /**
+    */
+/**
      * 自定义Realm
-     */
+     *//*
+
     @Autowired
     private ShiroRealm shiroRealm;
 
-    /**
+    */
+/**
      * 安全管理器
-     */
+     *//*
+
     @Bean
     DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -34,9 +41,11 @@ public class ShiroConfiguration {
         return securityManager;
     }
 
-    /**
+    */
+/**
      * Shiro过滤器工厂
-     */
+     *//*
+
     @Bean
     ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
         // 定义 shiroFactoryBean
@@ -58,6 +67,8 @@ public class ShiroConfiguration {
         filters.put("/product/show", "anon");
         filters.put("/product/toAdd", "anon"); // 商品添加
         filters.put("/product/add", "anon");
+        filters.put("/staff/toShow", "anon"); // 商品添加
+        filters.put("/staff/show", "anon");
         filters.put("/to/index", "anon");
         filters.put("/to/top", "anon");
         filters.put("/to/left", "anon");
@@ -73,3 +84,4 @@ public class ShiroConfiguration {
 
 
 }
+*/

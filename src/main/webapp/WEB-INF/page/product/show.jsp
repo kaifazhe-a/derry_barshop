@@ -22,7 +22,7 @@
             <col width="150">
             <col width="200">
             <col>
-        </colgroup>
+        </colgroup>s
     <tr>
         <td><input type="button" onclick="addPro()" value="进货" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary"/></td>
     </tr>

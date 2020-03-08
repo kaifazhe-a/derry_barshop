@@ -3,8 +3,10 @@ package com.dj.ssm.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -12,14 +14,11 @@ import java.util.Date;
  * 员工信息表pojo
  */
 @Data
-@Accessors(chain = true)
-@TableName("barber_staff")
-public class StaffPojo {
+public class StaffBo {
 
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**
@@ -43,6 +42,15 @@ public class StaffPojo {
     private String phoneEmailCode;
 
     /**
+     * 职位级别(1店长,2经理,3收银员,4首席设计师,5资深设计师,6学徒)
+     */
+    private Integer staffLevel;
+    /**
+     * 级别展示（连表）
+     */
+    private String roleName;
+
+    /**
      * 员工头像
      */
     private String staffImg;
@@ -51,10 +59,16 @@ public class StaffPojo {
      * 状态(1空闲，2工作，3请假, 4有预约)
      */
     private Integer staffStatus;
+    /**
+     * 状态展示（连表）
+     */
+    private String baseStaffStatus;
 
     /**
      * 员工入职时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date creationTime;
 
     /**
@@ -62,8 +76,5 @@ public class StaffPojo {
      */
     private Date updateTime;
 
-    /**
-     * 密码盐
-     */
-    private String  salt;
+
 }
