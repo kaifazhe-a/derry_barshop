@@ -33,6 +33,11 @@ public interface StaffService extends IService<StaffPojo> {
      */
     StaffPojo findUserByName(StaffPojo staffPojo) throws Exception;
 
-
-
+    /**
+     * 根据项目ID+理发师级别ID查询并展示
+     * @param id
+     * @param roleId
+     * @return
+     */
+    List<StaffBo> findStaffByIdAndItmeId(Integer id, Integer roleId) throws Exception;
 }

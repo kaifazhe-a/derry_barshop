@@ -21,5 +21,17 @@ public class ItmeServiceImpl  extends ServiceImpl<ItmeMapper, ItmePojo> implemen
         return list;
     }
 
+    /**
+     * 根据ID查询数据
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public ItmePojo findItmeById(Integer id) throws Exception {
+        ItmePojo itmePojo = this.getById(id);
+        return itmePojo;
+    }
+
 
 }

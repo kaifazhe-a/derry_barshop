@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dj.ssm.mapper.product.ProductMapper;
 import com.dj.ssm.mapper.staff.StaffMapper;
+import com.dj.ssm.pojo.ItmePojo;
 import com.dj.ssm.pojo.ProductPojo;
 import com.dj.ssm.pojo.StaffBo;
 import com.dj.ssm.pojo.StaffPojo;
@@ -70,5 +71,17 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implem
             return null;
         }
         return user;
+    }
+
+    /**
+     * 根据项目ID+理发师级别ID查询并展示
+     * @param itmeId
+     * @param roleId
+     * @return
+     */
+    @Override
+    public List<StaffBo> findStaffByIdAndItmeId(Integer itmeId, Integer roleId) throws Exception {
+        List<StaffBo> boList = getBaseMapper().findStaffByIdAndItmeId(itmeId, roleId);
+        return boList;
     }
 }

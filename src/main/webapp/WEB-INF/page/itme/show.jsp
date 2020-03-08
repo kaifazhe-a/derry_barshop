@@ -80,13 +80,12 @@
                     html += "<td>￥"+itme.itmePrice+"</td>";
                     html += "<td>"+itme.itmeTime+"分钟</td>";
                     html += "<td>"+111+"</td>";
-                    html += "<td><input type='button' value='选择理发师' onclick='xiaofei("+itme.roleId+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    html += "<td><input type='button' value='选择理发师' onclick='selectLFS("+itme.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
                 var pageNo = $("#page").val()
                 var pages = data.data.pages;
-                pageHtml+="<input type='button' onclick='page("+(parseInt(pageNo)-1)+","+pages+")' value='上一页' /> <input type='button' onclick='page("+(parseInt(pageNo)+1)+","+pages+")' value='下一页' />"
                 $("#pageNo").html(pageHtml)
         })
     }
@@ -114,19 +113,15 @@
             ,content: "<%=request.getContextPath()%>/user/toAdd"
         });
     }
-    // 去商品详细
-    function toShopDetail(proId){
-        window.location.href="<%=request.getContextPath()%>/product/toShopDetail?id="+proId
-    }
-    //去登录页面
-    function toLogin(){
+    //选择理发师
+    function selectLFS(id){
         layer.open({
             type: 2,
-            title: '用户登录面页',
+            title: '店内理发师',
             shadeClose: false,
             shade: 0.6,
-            area: ['380px', '90%'],
-            content: "<%=request.getContextPath()%>/user/toLogin"
+            area: ['800px', '90%'],
+            content: "<%=request.getContextPath()%>/staff/toStaffShow?id="+id
         });
     }
 </script>
