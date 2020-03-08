@@ -22,5 +22,11 @@ public interface ProductService extends IService<ProductPojo> {
      */
     void addProduct(ProductPojo productPojo) throws Exception;
 
-
+    /**
+     * 根据商品ID查询
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    ProductPojo findById(Integer id)throws Exception;
 }
