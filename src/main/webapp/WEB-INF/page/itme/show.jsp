@@ -79,7 +79,7 @@
                     html += "<td>"+itme.itmeName+"</td>";
                     html += "<td>￥"+itme.itmePrice+"</td>";
                     html += "<td>"+itme.itmeTime+"分钟</td>";
-                    html += "<td>"+111+"</td>";
+                    html += "<td><img src='"+itme.+"'></td>";
                     html += "<td><input type='button' value='选择理发师' onclick='selectLFS("+itme.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }

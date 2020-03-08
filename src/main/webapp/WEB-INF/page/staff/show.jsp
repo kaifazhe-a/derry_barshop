@@ -69,17 +69,16 @@
                     html+="<input type='hidden' id='"+staff.id+"'/>"
                     html += "<td>"+staff.staffName+"</td>";
                     html += "<td>"+staff.staffPhoneEmail+"</td>";
-                    html += "<td><img src='"+staff.staffImg+"'></td>";
+                    html += "<td><img src='"+staff.itmeImg+"'></td>";
                     html += "<td>"+staff.roleName+"</td>";
                     html += "<td>"+staff.creationTime+"</td>";
                     html += "<td>"+staff.baseStaffStatus+"</td>";
-                    html += "<td><input type='button' value='开除' onclick='del("+staff.roleId+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    html += "<td><input type='button' value='开除' onclick='del("+staff.id+")'class='layui-btn layui-btn-radius layui-btn-danger\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
                 var pageNo = $("#page").val()
                 var pages = data.data.pages;
-                pageHtml+="<input type='button' onclick='page("+(parseInt(pageNo)-1)+","+pages+")' value='上一页' /> <input type='button' onclick='page("+(parseInt(pageNo)+1)+","+pages+")' value='下一页' />"
                 $("#pageNo").html(pageHtml)
         })
     }
@@ -95,6 +94,21 @@
         $("#page").val(pageNo)
         show();
     }
+
+    function del(id){
+        var index = layer.load();
+        $.post(
+            "<%=request.getContextPath()%>/staff/del",
+            {"id":id},
+            function (data) {
+                layer.close(index);
+                if(data.code == 200){
+                    show();
+                } else {
+                    alert(data.msg);
+                }
+            }
+        );}
 
     function addStaff(){
         layer.open({

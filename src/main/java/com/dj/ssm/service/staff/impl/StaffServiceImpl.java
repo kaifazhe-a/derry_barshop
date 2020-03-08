@@ -104,4 +104,14 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implem
         staffRolePojo.setRoleId(staffPojo.getRoleId());
         staffRoleService.save(staffRolePojo);
     }
+
+    /**
+     * 开除员工
+     * @param id
+     * @throws Exception
+     */
+    @Override
+    public void delStaffMassage(Integer id) throws Exception {
+        this.removeById(id);
+    }
 }

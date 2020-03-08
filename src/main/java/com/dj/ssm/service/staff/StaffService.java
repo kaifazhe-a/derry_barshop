@@ -48,4 +48,10 @@ public interface StaffService extends IService<StaffPojo> {
      * @param staffPojo
      */
     void addStaffAll(StaffPojo staffPojo) throws Exception;
+
+    /**
+     * 开除员工
+     * @param id
+     */
+    void delStaffMassage(Integer id) throws Exception;
 }

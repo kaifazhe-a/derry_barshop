@@ -65,6 +65,17 @@ public class staffController {
     }
 
     /**
+     * 开除员工
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("del")
+    public ResultModel<Object> del (Integer id) throws Exception {
+        staffService.delStaffMassage(id);
+        return new ResultModel<>().success();
+    }
+
+    /**
      * 添加客户
      * @return
      * @throws Exception
