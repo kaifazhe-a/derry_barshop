@@ -21,18 +21,18 @@
 
     <dependencies>
     <!-- shiro -->
-     <dependency>
+    <!-- <dependency>
          <groupId>org.apache.shiro</groupId>
          <artifactId>shiro-spring-boot-starter</artifactId>
          <version>1.4.2</version>
-     </dependency>
+     </dependency>-->
 
     <!-- Shiro WEB 项目依赖 -->
-     <dependency>
+     <!--<dependency>
          <groupId>org.apache.shiro</groupId>
          <artifactId>shiro-spring-boot-web-starter</artifactId>
          <version>1.4.2</version>
-     </dependency>
+     </dependency>-->
 
         <!-- 七牛云 -->
         <dependency>
