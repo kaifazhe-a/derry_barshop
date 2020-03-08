@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.dj.ssm.pojo.StaffBo;
 import com.dj.ssm.pojo.StaffPojo;
 
+import java.security.PrivateKey;
 import java.util.List;
 
 public interface StaffService extends IService<StaffPojo> {
+
 
     /**
      * 员工信息展示
@@ -40,4 +42,10 @@ public interface StaffService extends IService<StaffPojo> {
      * @return
      */
     List<StaffBo> findStaffByIdAndItmeId(Integer id, Integer roleId) throws Exception;
+
+    /**
+     * 添加员工信息
+     * @param staffPojo
+     */
+    void addStaffAll(StaffPojo staffPojo) throws Exception;
 }

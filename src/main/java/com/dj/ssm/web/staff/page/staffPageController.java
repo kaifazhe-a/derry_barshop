@@ -49,6 +49,15 @@ public class staffPageController {
     }
 
     /**
+     * 去添加员工
+     * @return
+     */
+    @RequestMapping("toAddStaff")
+    public String toAddStaff () {
+        return "staff/add_staff";
+    }
+
+    /**
      * 去选择理发师展示
      * @return
      */

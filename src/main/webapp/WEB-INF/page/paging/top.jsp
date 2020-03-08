@@ -14,26 +14,15 @@
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
     <div class="layui-logo">德瑞家的理发店⭐</div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-
     <ul class="layui-nav layui-layout-right">
-
       <li class="layui-nav-item">
         <a href="javascript:;">
-          ${user.userName}
+         登录人：${staff.staffName}
         </a>
       </li>
-      <li class="layui-nav-item"><a href="<%=request.getContextPath() %>/user/toLogin" target="right">👉退出</a></li>
+      <li class="layui-nav-item"><a href="<%=request.getContextPath() %>/staff/toLogin" target="right">👉退出</a></li>
     </ul>
   </div>
 </div>
-<%-- 		<center><h1><span style="color:Gold">点金人⭐用户信息✨</span></h1></center>
-		<marquee></marquee><center><h2>欢迎${djUser.userName}用户登录</h2></center> 
-		<a href="<%=request.getContextPath() %>/user/toLogin">👉点击退出</a>
-	<div id="datetime" align="right" style="color:red">⭐⭐⭐
-		<script>
-	 		setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
-	   </script>
-	</div> --%>
  </body>
 </html>

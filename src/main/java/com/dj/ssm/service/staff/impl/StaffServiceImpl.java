@@ -4,22 +4,28 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dj.ssm.mapper.product.ProductMapper;
 import com.dj.ssm.mapper.staff.StaffMapper;
-import com.dj.ssm.pojo.ItmePojo;
-import com.dj.ssm.pojo.ProductPojo;
-import com.dj.ssm.pojo.StaffBo;
-import com.dj.ssm.pojo.StaffPojo;
+import com.dj.ssm.mapper.staff.StaffRoleMapper;
+import com.dj.ssm.pojo.*;
+import com.dj.ssm.service.staff.StaffRoleService;
 import com.dj.ssm.service.staff.StaffService;
 import com.dj.ssm.utils.PasswordSecurityUtil;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  * 员工 serviceImpl
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implements StaffService {
+
+    @Autowired
+    private StaffRoleService staffRoleService;
 
     /**
      * 员工信息展示
@@ -83,5 +89,19 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implem
     public List<StaffBo> findStaffByIdAndItmeId(Integer itmeId, Integer roleId) throws Exception {
         List<StaffBo> boList = getBaseMapper().findStaffByIdAndItmeId(itmeId, roleId);
         return boList;
+    }
+
+    /**
+     * 添加员工信息
+     * @param staffPojo
+     */
+    @Override
+    public void addStaffAll(StaffPojo staffPojo) throws Exception {
+        staffPojo.setCreationTime(new Date());
+        this.save(staffPojo);
+        StaffRolePojo staffRolePojo = new StaffRolePojo();
+        staffRolePojo.setStaffId(staffPojo.getId());
+        staffRolePojo.setRoleId(staffPojo.getRoleId());
+        staffRoleService.save(staffRolePojo);
     }
 }

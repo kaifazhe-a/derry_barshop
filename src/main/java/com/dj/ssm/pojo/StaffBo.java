@@ -78,9 +78,11 @@ public class StaffBo {
     private Date creationTime;
 
     /**
-     * 员工信息修改时间
+     * 员工工作时间
      */
-    private Date updateTime;
+    private Date workTime;
+
+
 
 
 }

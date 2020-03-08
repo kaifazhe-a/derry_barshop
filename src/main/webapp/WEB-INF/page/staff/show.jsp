@@ -69,7 +69,7 @@
                     html+="<input type='hidden' id='"+staff.id+"'/>"
                     html += "<td>"+staff.staffName+"</td>";
                     html += "<td>"+staff.staffPhoneEmail+"</td>";
-                    html += "<td>"+staff.staffImg+"</td>";
+                    html += "<td><img src='"+staff.staffImg+"'></td>";
                     html += "<td>"+staff.roleName+"</td>";
                     html += "<td>"+staff.creationTime+"</td>";
                     html += "<td>"+staff.baseStaffStatus+"</td>";
@@ -96,7 +96,7 @@
         show();
     }
 
-    function toAdd(){
+    function addStaff(){
         layer.open({
             type: 2 //Page层类型
             ,area: ['500px', '400px']
@@ -104,22 +104,7 @@
             ,shade: 0.6 //遮罩透明度
             ,maxmin: true //允许全屏最小化
             ,anim: 1 //0-6的动画形式，-1不开启
-            ,content: "<%=request.getContextPath()%>/user/toAdd"
-        });
-    }
-    // 去商品详细
-    function toShopDetail(proId){
-        window.location.href="<%=request.getContextPath()%>/product/toShopDetail?id="+proId
-    }
-    //去登录页面
-    function toLogin(){
-        layer.open({
-            type: 2,
-            title: '用户登录面页',
-            shadeClose: false,
-            shade: 0.6,
-            area: ['380px', '90%'],
-            content: "<%=request.getContextPath()%>/user/toLogin"
+            ,content: "<%=request.getContextPath()%>/staff/toAddStaff"
         });
     }
 
