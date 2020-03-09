@@ -45,11 +45,13 @@ public class TurnoverController {
      * @return
      */
     @RequestMapping("addTimeTurnover")
-    public ResultModel<Object> timeTurnover(Double itmePrice, HttpSession session) throws Exception {
+    public ResultModel<Object> timeTurnover(Integer staffId, Double itmePrice, String itmeName, Integer payType, HttpSession session) throws Exception {
         TurnoverPojo turnoverPojo = new TurnoverPojo();
         StaffPojo staff = (StaffPojo) session.getAttribute("staff");
         turnoverPojo.setPayPrice(itmePrice);
-        turnoverPojo.setVipCodeId(staff.getId());
+        turnoverPojo.setStaffId(staffId);
+        turnoverPojo.setProject(itmeName);
+        turnoverPojo.setPayType(payType);
         turnoverPojo.setPayTime(new Date());
         turnoverService.addTimeTurnover(turnoverPojo);
         return new ResultModel<>().success();

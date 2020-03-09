@@ -28,7 +28,7 @@
                 <td>￥${list.itmePrice}</td>
                 <td>${list.baseStaffStatus}</td>
                 <th>
-                    <c:if test="${list.baseStaffStatus == '空闲'}"><input type="button" value="消费" onclick="consumption(${list.itmePrice})" class='layui-btn layui-btn-danger layui-btn-radius'/></c:if>
+                    <c:if test="${list.baseStaffStatus == '空闲'}"><input type="button" value="消费" onclick="consumption(${list.id}+','+${list.itmePrice})" class='layui-btn layui-btn-danger layui-btn-radius'/></c:if>
                     <c:if test="${list.baseStaffStatus == '工作'}"><input type="button" value="工作中"class="layui-btn layui-btn-radius layui-btn-disabled"/></c:if>
                 </th>
             </tr>
@@ -38,20 +38,24 @@
         <span >项目（级别）：</span><span style="color: #6362ff">${list.roleName}</span><br>
         <span >项目价格(元)：</span><span style="color: #6362ff">￥${list.itmePrice}</span><br>
         <span >工作状态：</span><span style="color: #6362ff">${list.baseStaffStatus}</span><br>--%>
-
+        <input type="text" value="${list.roleName}" id="itemName">
     </c:forEach>
 
 </form>
 </body>
 <script type="text/javascript">
-
     // 消费
-    function consumption(/*id, */ itmePrice){
-        /*debugger;
-        var values = id.split(",");*/
+    function consumption(id, itmePrice){
+        /*debugger;*/
+        var values = id.split(",");
         $.post(
             "<%=request.getContextPath()%>/turnover/addTimeTurnover",
-            { "itmePrice":itmePrice},
+            {
+                "staffId":values[0],
+                "itmePrice":values[1],
+                "itmeName":$("#itemName").val(),
+                "payType":8
+            },
             function (data) {
                 layer.close(index);
                 if(data.code == 200){

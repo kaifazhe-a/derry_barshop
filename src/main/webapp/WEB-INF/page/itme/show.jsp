@@ -16,12 +16,6 @@
     <a href="javascript:void(0)" onclick="toAdd()"><span style="color: #1E9FFF">注册</span></a>
     <a href="javascript:void(0)" onclick="toShopCar()"><span style="color: #1E9FFF">我的购物车</span></a>
 </span>--%>
-<form id="frm">
-    名称：<input type="text" name="productName" /><br>
-    价格：<input type="text" name="max" /> ~~ <input type="text" name="min" /><br>
-    <input type="hidden" value="1" name="pageNo" id="page"/>
-    <input type="button" value="搜索" onclick="findProduct()"/><br>
-</form>
 <center>
     <table class="layui-table">
         <colgroup>
