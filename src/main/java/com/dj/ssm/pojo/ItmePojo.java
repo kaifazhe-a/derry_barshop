@@ -40,4 +40,9 @@ public class ItmePojo {
      */
     private Integer itmeTime;
 
+    /**
+     * 参考图片
+     */
+    private String itmeImg;
+
 }

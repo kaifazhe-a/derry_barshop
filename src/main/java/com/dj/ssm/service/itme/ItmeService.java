@@ -14,5 +14,10 @@ public interface ItmeService extends IService<ItmePojo> {
      */
     List<ItmePojo> findItmeAll() throws Exception;
 
-
+    /**
+     * 根据ID进行查询数据
+     * @param id
+     * @return
+     */
+    ItmePojo findItmeById(Integer id) throws Exception;
 }

@@ -1,11 +1,13 @@
 package com.dj.ssm.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.beans.Transient;
 import java.util.Date;
 
 /**
@@ -58,12 +60,18 @@ public class StaffPojo {
     private Date creationTime;
 
     /**
-     * 员工信息修改时间
+     * 员工工作时间
      */
-    private Date updateTime;
+    private Date workTime;
 
     /**
      * 密码盐
      */
     private String  salt;
+
+    /**
+     * 角色ID
+     */
+    @TableField(exist = false)
+    private Integer roleId;
 }

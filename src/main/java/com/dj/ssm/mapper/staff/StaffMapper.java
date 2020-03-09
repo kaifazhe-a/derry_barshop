@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface StaffMapper extends BaseMapper<StaffPojo> {
     List<StaffBo> findStaffall() throws AssertionError;
+
+    List<StaffBo> findStaffByIdAndItmeId(Integer itmeId, Integer roleId) throws AssertionError;
 }

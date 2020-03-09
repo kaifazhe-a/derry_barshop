@@ -69,17 +69,16 @@
                     html+="<input type='hidden' id='"+staff.id+"'/>"
                     html += "<td>"+staff.staffName+"</td>";
                     html += "<td>"+staff.staffPhoneEmail+"</td>";
-                    html += "<td>"+staff.staffImg+"</td>";
+                    html += "<td><img src='"+staff.itmeImg+"'></td>";
                     html += "<td>"+staff.roleName+"</td>";
                     html += "<td>"+staff.creationTime+"</td>";
                     html += "<td>"+staff.baseStaffStatus+"</td>";
-                    html += "<td><input type='button' value='开除' onclick='del("+staff.roleId+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    html += "<td><input type='button' value='开除' onclick='del("+staff.id+")'class='layui-btn layui-btn-radius layui-btn-danger\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
                 var pageNo = $("#page").val()
                 var pages = data.data.pages;
-                pageHtml+="<input type='button' onclick='page("+(parseInt(pageNo)-1)+","+pages+")' value='上一页' /> <input type='button' onclick='page("+(parseInt(pageNo)+1)+","+pages+")' value='下一页' />"
                 $("#pageNo").html(pageHtml)
         })
     }
@@ -96,7 +95,22 @@
         show();
     }
 
-    function toAdd(){
+    function del(id){
+        var index = layer.load();
+        $.post(
+            "<%=request.getContextPath()%>/staff/del",
+            {"id":id},
+            function (data) {
+                layer.close(index);
+                if(data.code == 200){
+                    show();
+                } else {
+                    alert(data.msg);
+                }
+            }
+        );}
+
+    function addStaff(){
         layer.open({
             type: 2 //Page层类型
             ,area: ['500px', '400px']
@@ -104,22 +118,7 @@
             ,shade: 0.6 //遮罩透明度
             ,maxmin: true //允许全屏最小化
             ,anim: 1 //0-6的动画形式，-1不开启
-            ,content: "<%=request.getContextPath()%>/user/toAdd"
-        });
-    }
-    // 去商品详细
-    function toShopDetail(proId){
-        window.location.href="<%=request.getContextPath()%>/product/toShopDetail?id="+proId
-    }
-    //去登录页面
-    function toLogin(){
-        layer.open({
-            type: 2,
-            title: '用户登录面页',
-            shadeClose: false,
-            shade: 0.6,
-            area: ['380px', '90%'],
-            content: "<%=request.getContextPath()%>/user/toLogin"
+            ,content: "<%=request.getContextPath()%>/staff/toAddStaff"
         });
     }
 

@@ -20,4 +20,23 @@
 	        ff.staff_status != 7
     </select>
 
+    <select id="findStaffByIdAndItmeId" resultType="com.dj.ssm.pojo.StaffBo">
+        SELECT
+            ff.staff_img as staffImg,
+            ff.staff_name,
+            me.itme_name as roleName,
+            me.itme_price,
+            ct.dict_name  as baseStaffStatus
+        FROM
+            barber_itme me
+        JOIN barber_staff_role le ON me.role_id = le.role_id
+        JOIN barber_staff ff ON ff.id = le.staff_id
+        JOIN barber_dict ct ON ff.staff_status = ct.id
+        <where>
+            <if test="roleId != '' and itmeId != '' ">
+                me.role_id = #{roleId} and me.id = #{itmeId}
+            </if>
+        </where>
+    </select>
+
 </mapper>

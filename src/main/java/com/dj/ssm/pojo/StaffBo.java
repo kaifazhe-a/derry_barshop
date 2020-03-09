@@ -59,6 +59,12 @@ public class StaffBo {
      * 状态(1空闲，2工作，3请假, 4有预约)
      */
     private Integer staffStatus;
+
+    /**
+     * 项目金额
+     */
+    private Integer itmePrice;
+
     /**
      * 状态展示（连表）
      */
@@ -72,9 +78,11 @@ public class StaffBo {
     private Date creationTime;
 
     /**
-     * 员工信息修改时间
+     * 员工工作时间
      */
-    private Date updateTime;
+    private Date workTime;
+
+
 
 
 }

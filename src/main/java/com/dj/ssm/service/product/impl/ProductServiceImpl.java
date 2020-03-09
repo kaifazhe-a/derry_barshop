@@ -32,6 +32,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, ProductPojo> 
     @Override
     public void addProduct(ProductPojo productPojo) throws Exception {
         this.save(productPojo);
+
+
+
     }
 
 
