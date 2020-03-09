@@ -64,15 +64,16 @@
             })
     }
 
-    function addMoney(id){
+
+    function addMoney(id) {
         layer.open({
-            type: 2 //Page层类型
-            ,area: ['500px', '400px']
-            ,title: '你好。'
-            ,shade: 0.6 //遮罩透明度
-            ,maxmin: true //允许全屏最小化
-            ,anim: 1 //0-6的动画形式，-1不开启
-            ,content: "<%=request.getContextPath()%>/vipcard/toTopUp?id="+id
+            type: 2,
+            title: '充值',
+            shadeClose: true,
+            shade: 0.8,
+            anim: 1,
+            area: ['380px', '90%'],
+            content: "<%=request.getContextPath() %>/vipcard/toTopUp?id="+id
         });
     }
 </script>
