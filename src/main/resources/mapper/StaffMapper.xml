@@ -22,6 +22,7 @@
 
     <select id="findStaffByIdAndItmeId" resultType="com.dj.ssm.pojo.StaffBo">
         SELECT
+            ff.id,
             ff.staff_img as staffImg,
             ff.staff_name,
             me.itme_name as roleName,

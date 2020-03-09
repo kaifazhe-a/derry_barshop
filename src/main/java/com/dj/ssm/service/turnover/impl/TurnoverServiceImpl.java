@@ -24,7 +24,15 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
         return list;
     }
 
-
+    /**
+     * 消费项目
+     * @param turnoverPojo
+     * @throws Exception
+     */
+    @Override
+    public void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception {
+        this.save(turnoverPojo);
+    }
 
 
 }

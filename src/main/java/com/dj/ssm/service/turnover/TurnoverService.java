@@ -16,6 +16,9 @@ public interface TurnoverService extends IService<TurnoverPojo> {
      */
     List<TurnoverPojo> findTurnoverAll() throws Exception;
 
-
-
+    /**
+     * 项目消费
+     * @return
+     */
+    void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception;
 }

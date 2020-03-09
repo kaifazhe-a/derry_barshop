@@ -28,7 +28,7 @@
                 <td>￥${list.itmePrice}</td>
                 <td>${list.baseStaffStatus}</td>
                 <th>
-                    <c:if test="${list.baseStaffStatus == '空闲'}"><input type="button" value="消费" onclick="consumption()" class='layui-btn layui-btn-danger layui-btn-radius'/></c:if>
+                    <c:if test="${list.baseStaffStatus == '空闲'}"><input type="button" value="消费" onclick="consumption(${list.itmePrice})" class='layui-btn layui-btn-danger layui-btn-radius'/></c:if>
                     <c:if test="${list.baseStaffStatus == '工作'}"><input type="button" value="工作中"class="layui-btn layui-btn-radius layui-btn-disabled"/></c:if>
                 </th>
             </tr>
@@ -45,17 +45,22 @@
 </body>
 <script type="text/javascript">
 
-    function page(pageNo,pages){
-        if(pageNo > pages) {
-            layer.alert("最后一页了!!!");
-            return;
-        }
-        if(pageNo < 1) {
-            layer.msg("已经是当前第一页");
-            return;
-        }
-        $("#page").val(pageNo)
-        show();
+    // 消费
+    function consumption(/*id, */ itmePrice){
+        /*debugger;
+        var values = id.split(",");*/
+        $.post(
+            "<%=request.getContextPath()%>/turnover/addTimeTurnover",
+            { "itmePrice":itmePrice},
+            function (data) {
+                layer.close(index);
+                if(data.code == 200){
+                    show();
+                } else {
+                    alert(data.msg);
+                }
+            }
+        );
     }
 
     function toAdd(){
