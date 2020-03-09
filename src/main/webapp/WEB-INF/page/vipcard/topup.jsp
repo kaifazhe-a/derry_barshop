@@ -36,6 +36,10 @@
             <th>充值金额</th>
             <th><input type="text" name="upMoney"></th>
         </tr>
+        <tr style="color:#DB7093">
+            <th>充值员工编号</th>
+            <th><input type="text" name="peopleId"></th>
+        </tr>
         </th>
         </tr>
         </thead>
