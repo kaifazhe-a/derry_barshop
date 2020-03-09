@@ -13,7 +13,7 @@
 <form id="frm">
     <c:forEach items="${boList}" var="list">
         <table class="layui-table">
-            <tr>
+            <tr style='color: red'>
                 <th>员工样貌</th>
                 <th>理发师</th>
                 <th>项目（级别）</th>

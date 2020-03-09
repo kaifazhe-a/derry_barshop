@@ -1,10 +1,10 @@
 package com.dj.ssm.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -22,13 +22,20 @@ public class TurnoverPojo {
     private Integer staffId;
 
     /**
-     * '会员卡id'
+     * 员工姓名
      */
-    private Integer vipCodeId;
+    private String staffName;
+
+    /**
+     * 消费项目
+     */
+    private String project;
 
     /**
      * 消费时间
      */
+    @DateTimeFormat(pattern = "yyyy年MM月dd日 HH:mm:ss")
+    @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss", timezone = "UTF-8")
     private Date payTime;
 
     /**
@@ -40,6 +47,12 @@ public class TurnoverPojo {
      * 消费方式（1充值,2会员消费,3散户消费）
      */
     private Integer payType;
+
+    /**
+     * dict消费方式
+     */
+    private String dictName;
+
 
 
 }

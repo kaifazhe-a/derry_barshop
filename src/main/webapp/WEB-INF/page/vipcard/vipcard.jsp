@@ -17,7 +17,7 @@
             <col width="200">
             <col>
         </colgroup>
-        <tr>
+        <tr style='color: red'>
             <td>会员卡ID</td>
             <td>会员卡号</td>
             <td>会员姓名</td>

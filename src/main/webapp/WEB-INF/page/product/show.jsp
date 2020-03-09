@@ -22,11 +22,11 @@
             <col width="150">
             <col width="200">
             <col>
-        </colgroup>s
+        </colgroup>
     <tr>
         <td><input type="button" onclick="addPro()" value="进货" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary"/></td>
     </tr>
-    <tr>
+    <tr style='color: red'>
         <td>商品名</td>
         <td>参考图片</td>
         <td>价格</td>
