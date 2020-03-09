@@ -29,7 +29,7 @@
             <col width="200">
             <col>
         </colgroup>
-    <tr>
+    <tr style='color: red'>
         <td>姓名</td>
         <td>手机号/邮箱</td>
         <td>人员面貌</td>
@@ -69,7 +69,7 @@
                     html+="<input type='hidden' id='"+staff.id+"'/>"
                     html += "<td>"+staff.staffName+"</td>";
                     html += "<td>"+staff.staffPhoneEmail+"</td>";
-                    html += "<td><img src='"+staff.itmeImg+"'></td>";
+                    html += "<td><img src='"+staff.staffImg+"'></td>";
                     html += "<td>"+staff.roleName+"</td>";
                     html += "<td>"+staff.creationTime+"</td>";
                     html += "<td>"+staff.baseStaffStatus+"</td>";

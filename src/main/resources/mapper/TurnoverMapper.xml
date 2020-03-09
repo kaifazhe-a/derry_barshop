@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dj.ssm.mapper.turnover.TurnoverMapper">
+
+    <!-- 营业额连表展示 -->
+    <select id="findTurnoverAll" resultType="com.dj.ssm.pojo.TurnoverPojo">
+        SELECT
+            tur.staff_id,
+            sta.staff_name,
+            tur.project,
+            tur.pay_time,
+            tur.pay_price,
+            dict.dict_name
+        FROM
+            barber_turnover tur
+        LEFT JOIN barber_dict dict ON tur.pay_type = dict.id
+        LEFT JOIN barber_staff sta ON sta.id = tur.staff_id
+        LEFT JOIN barber_vip_card vip ON vip.vip_card_number = tur.project
+        LEFT JOIN barber_product pro ON tur.project = pro.pro_name
+        LEFT JOIN barber_itme itme ON itme.itme_name = tur.project
+    </select>
+
+</mapper>

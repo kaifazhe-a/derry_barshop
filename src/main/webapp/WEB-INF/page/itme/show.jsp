@@ -29,7 +29,7 @@
             <col width="200">
             <col>
         </colgroup>
-    <tr>
+    <tr style='color: red'>
         <td>理发项目</td>
         <td>理发价格</td>
         <td>理发时间</td>
@@ -79,7 +79,7 @@
                     html += "<td>"+itme.itmeName+"</td>";
                     html += "<td>￥"+itme.itmePrice+"</td>";
                     html += "<td>"+itme.itmeTime+"分钟</td>";
-                    html += "<td><img src='"+itme.+"'></td>";
+                    html += "<td><img src='"+itme.itmeImg+"'></td>";
                     html += "<td><input type='button' value='选择理发师' onclick='selectLFS("+itme.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }
