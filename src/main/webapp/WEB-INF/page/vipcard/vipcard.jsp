@@ -48,15 +48,16 @@
                 var html="";
                 var data = data.data;
                 for (var i = 0; i < data.length; i++) {
+                    var vip = data[i];
                     html += "<tr>";
-                    html += "<td>"+data.id+"</td>";
-                    html += "<td>"+data.vipCardNumber+"</td>";
-                    html += "<td>"+data.vipName+"</td>";
-                    html += "<td>"+data.vipBalance+"</td>";
-                    html += "<td>"+data.vipGrade+"</td>";
-                    html += "<td>"+data.priceSum+"</td>";
-                    html += "<td>"+data.vipStatus+"</td>";
-                    html += "<td><input type='button' value='充值' onclick='addMoney("+data.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    html += "<td>"+vip.id+"</td>";
+                    html += "<td>"+vip.vipCardNumber+"</td>";
+                    html += "<td>"+vip.vipName+"</td>";
+                    html += "<td>"+vip.vipBalance+"</td>";
+                    html += "<td>"+vip.vipGrade+"</td>";
+                    html += "<td>"+vip.priceSum+"</td>";
+                    html += "<td>"+vip.vipStatus+"</td>";
+                    html += "<td><input type='button' value='充值' onclick='addMoney("+vip.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
