@@ -21,4 +21,12 @@ public class ItmePageController {
         return "itme/show";
     }
 
+    /**
+     * to 添加项目
+     */
+    @RequestMapping("toAdd")
+    public String toAdd() {
+        return "itme/add";
+    }
+
 }

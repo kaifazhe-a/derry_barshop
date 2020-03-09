@@ -98,7 +98,7 @@
             ,shade: 0.6 //遮罩透明度
             ,maxmin: true //允许全屏最小化
             ,anim: 1 //0-6的动画形式，-1不开启
-            ,content: "<%=request.getContextPath()%>/user/toAdd"
+            ,content: "<%=request.getContextPath()%>/turnover/toAdd"
         });
     }
 
