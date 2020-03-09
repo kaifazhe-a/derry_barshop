@@ -18,7 +18,8 @@
           <a href="<%=request.getContextPath()%>/itme/toShow" target="right">店内项目⭐</a>
           <a href="<%=request.getContextPath()%>/product/toShow" target="right">商品展示⭐</a>
           <a href="<%=request.getContextPath()%>/staff/toShow" target="right">店内人员展示⭐</a>
-            <a href="<%=request.getContextPath()%>/vipcard/toShowVipcard" target="right">会员信息⭐</a>
+          <a href="<%=request.getContextPath()%>/vipcard/toShowVipcard" target="right">会员信息⭐</a>
+          <a href="<%=request.getContextPath()%>/turnover/toShow" target="right">店内营业额⭐</a>
         </li>
       </ul>
     </div>

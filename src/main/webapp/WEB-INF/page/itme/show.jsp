@@ -29,7 +29,7 @@
             <col width="200">
             <col>
         </colgroup>
-    <tr>
+    <tr style='color: red'>
         <td>理发项目</td>
         <td>理发价格</td>
         <td>理发时间</td>

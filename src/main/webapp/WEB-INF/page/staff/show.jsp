@@ -29,7 +29,7 @@
             <col width="200">
             <col>
         </colgroup>
-    <tr>
+    <tr style='color: red'>
         <td>姓名</td>
         <td>手机号/邮箱</td>
         <td>人员面貌</td>

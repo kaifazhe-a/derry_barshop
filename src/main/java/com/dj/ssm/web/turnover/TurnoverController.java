@@ -36,10 +36,8 @@ public class TurnoverController {
      */
     @RequestMapping("show")
     public ResultModel<Object> show() throws Exception {
-        Map<String, Object> map = new HashMap();
         List<TurnoverPojo> list = turnoverService.findTurnoverAll();
-        map.put("list", list);
-        return new ResultModel<>().success(map);
+        return new ResultModel<>().success(list);
     }
 
     /**

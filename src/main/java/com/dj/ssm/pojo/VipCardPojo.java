@@ -36,12 +36,12 @@ public class VipCardPojo {
     private String vipPassword;
 
     /**
-     * 会员等级（1贵宾卡充值0.5k,2金卡充值5K,3钻石卡充值10K）
+     * 会员卡余额
      */
     private Double vipBalance;
 
     /**
-     * 会员卡余额
+     * 会员等级（1贵宾卡充值0.5k,2金卡充值5K,3钻石卡充值10K）
      */
     private Integer vipGrade;
 
