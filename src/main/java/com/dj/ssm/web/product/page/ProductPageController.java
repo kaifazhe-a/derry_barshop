@@ -1,9 +1,11 @@
 package com.dj.ssm.web.product.page;
 
 import com.dj.ssm.config.ResultModel;
+import com.dj.ssm.pojo.ProductPojo;
 import com.dj.ssm.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -12,6 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/product/")
 public class ProductPageController {
+
+    /**
+     * 注入商品api
+     */
+    @Autowired
+    private ProductService productService;
 
     /**
      * to 商品展示
@@ -28,6 +36,16 @@ public class ProductPageController {
     @RequestMapping("toAdd")
     public String toAdd() {
         return "product/add";
+    }
+
+    /**
+     * 查询商品详情(商品购买)
+     */
+    @RequestMapping("/toBuyProduct")
+    public String toBuyProduct(Integer id, Model model) throws Exception {
+        ProductPojo product = productService.findProductById(id);
+        model.addAttribute("pro", product);
+        return "product/buy_product";
     }
 
 

@@ -1,5 +1,6 @@
 package com.dj.ssm.service.product.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dj.ssm.mapper.product.ProductMapper;
 import com.dj.ssm.pojo.ProductPojo;
@@ -32,9 +33,18 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, ProductPojo> 
     @Override
     public void addProduct(ProductPojo productPojo) throws Exception {
         this.save(productPojo);
+    }
 
-
-
+    /**
+     * 查询商品详情
+     * @param id
+     */
+    @Override
+    public ProductPojo findProductById(Integer id) throws Exception {
+        QueryWrapper<ProductPojo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", id);
+        ProductPojo product = this.getOne(queryWrapper);
+        return product;
     }
 
 
