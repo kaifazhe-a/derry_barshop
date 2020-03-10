@@ -38,7 +38,7 @@
         <span >项目（级别）：</span><span style="color: #6362ff">${list.roleName}</span><br>
         <span >项目价格(元)：</span><span style="color: #6362ff">￥${list.itmePrice}</span><br>
         <span >工作状态：</span><span style="color: #6362ff">${list.baseStaffStatus}</span><br>--%>
-        <input type="text" value="${list.roleName}" id="itemName">
+        <input type="hidden" value="${list.roleName}" id="itemName">
     </c:forEach>
 
 </form>
