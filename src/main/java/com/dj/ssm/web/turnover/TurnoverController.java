@@ -54,7 +54,7 @@ public class TurnoverController {
         turnoverPojo.setProject(itmeName);
         turnoverPojo.setPayType(payType);
         turnoverPojo.setPayTime(new Date());
-        turnoverService.addTimeTurnover(turnoverPojo, date);
+        turnoverService.addTimeTurnover(turnoverPojo);
         return new ResultModel<>().success();
     }
 
