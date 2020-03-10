@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/vipcard")
+@RequestMapping("/vipcard/")
 public class vipcardPageController {
     @Autowired
     private VipcardService vipcardService;
@@ -32,7 +32,20 @@ public class vipcardPageController {
     }
 
     /**
-     * 去查看理发师信息
+     * 去办理会员卡
      */
+    @RequestMapping("toAddVip")
+    public String toAddVip(){
+        return "/vipcard/addvip";
+    }
 
+    /**
+     * 去注销会员卡
+     */
+    @RequestMapping("toDelVip")
+    public String toDelVip(Integer id, Model model){
+        VipCardPojo byId = vipcardService.getById(id);
+        model.addAttribute("vip",byId);
+        return "/vipcard/delvip";
+    }
 }
