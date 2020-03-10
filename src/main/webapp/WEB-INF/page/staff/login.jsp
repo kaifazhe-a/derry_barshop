@@ -8,7 +8,7 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/validate/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/validate/messages_zh.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/layui/layui.all.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/res/md5.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/res/md5-min.js"></script>
 <html>
 <head>
     <title>登录</title>
@@ -19,11 +19,11 @@
         <table border="0px" cellpadding="10" cellspacing="0">
             <tr>
                 <td>用户名：</td>
-                <td><input type="text" name="staffName" id="userName" placeholder="用户名/手机号/邮箱" size="40"/></td>
+                <td><input type="text" name="staffName" id="userName" placeholder="用户名/手机号" size="40"/></td>
             </tr>
             <tr>
                 <td>密&nbsp;&nbsp;码：</td>
-                <td><input type="text" name="staffPassword" id="pwd" size="40"/></td>
+                <td><input type="password" name="staffPassword" id="pwd" size="40"/></td>
             </tr>
             <tr>
                 <td>
@@ -48,7 +48,8 @@
 </body>
 <script type="text/javascript">
     function login(){
-       /* $("#pwd").val(md5($("#pwd").val()));*/
+        alert($("#pwd").val());
+       $("#pwd").val(md5($("#pwd").val()));
         var index = layer.load();
         $.post(
             "<%=request.getContextPath()%>/staff/login",

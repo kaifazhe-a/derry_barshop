@@ -51,7 +51,7 @@
                     var tur = data.data[i];
                     html += "<tr>";
                     if(tur.staffId === -1) {
-                        html += "<td>无</td>"
+                        html += "<td>自动收款机（IA）</td>"
                     } else {
                         html += "<td>"+tur.staffName+"</td>";
                     }

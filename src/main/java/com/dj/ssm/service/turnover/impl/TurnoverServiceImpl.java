@@ -49,11 +49,11 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
      * @throws Exception
      */
     @Override
-    public void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception {
+    public void addTimeTurnover(TurnoverPojo turnoverPojo, Date date) throws Exception {
         this.save(turnoverPojo);
         UpdateWrapper<StaffPojo> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("staff_status", 3);
-        updateWrapper.set("work_time", new Date());
+        updateWrapper.set("work_time", date);
         updateWrapper.eq("id", turnoverPojo.getStaffId());
         staffService.update(updateWrapper);
     }

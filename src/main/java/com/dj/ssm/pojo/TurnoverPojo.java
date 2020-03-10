@@ -53,6 +53,11 @@ public class TurnoverPojo {
      */
     private String dictName;
 
+    /**
+     * 工作时间
+     */
+    private Integer workTime;
+
 
 
 }

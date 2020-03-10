@@ -22,7 +22,7 @@ public interface TurnoverService extends IService<TurnoverPojo> {
      * 项目消费
      * @return
      */
-    void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception;
+    void addTimeTurnover(TurnoverPojo turnoverPojo, Date date) throws Exception;
 
     /**
      * 商品消费

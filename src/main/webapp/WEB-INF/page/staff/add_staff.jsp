@@ -9,7 +9,7 @@
     <script type="text/javascript" src="<%=request.getContextPath() %>/res/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/res/validate/messages_zh.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/res/layui/layui.all.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath() %>/res/md5.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/res/md5-min.js"></script>
 <title>添加客人</title>
 <style type="text/css">
 	.error{
@@ -20,6 +20,7 @@
 <body bgcolor="LightCyan">
 <form id="frm" enctype="multipart/form-data">
     <table  border="0px"  cellpadding="10" cellspacing="0">
+        <input type="hidden" name="salt" value="${salt}" id="salt" />
         <tr>
             <th>理发师名称：</th>
             <td><input type="text" name="staffName" id="staffName"/><br></td>
@@ -136,7 +137,7 @@
                 },
             },
             submitHandler:function(){
-                debugger
+                $("#pwd").val(md5(md5($("#pwd").val()) + '${salt}'))
                 var formData = new FormData($("#frm")[0]);
                 var index = layer.load();
                 $.ajax({

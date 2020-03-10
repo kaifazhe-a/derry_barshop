@@ -53,8 +53,7 @@ public class TurnoverController {
         turnoverPojo.setStaffId(staffId);
         turnoverPojo.setProject(itmeName);
         turnoverPojo.setPayType(payType);
-        turnoverPojo.setPayTime(new Date());
-        turnoverService.addTimeTurnover(turnoverPojo);
+        turnoverService.addTimeTurnover(turnoverPojo, date);
         return new ResultModel<>().success();
     }
 

@@ -41,4 +41,8 @@
         </where>
     </select>
 
+    <update id="updateStaffStatus">
+        UPDATE barber_staff SET staff_status = 2 WHERE work_time &lt; NOW()
+    </update>
+
 </mapper>

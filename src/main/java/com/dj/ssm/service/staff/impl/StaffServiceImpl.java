@@ -49,6 +49,9 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implem
         queryWrapper.and(i -> i.eq("staff_name", staffPojo.getStaffName())
                 .or().eq("staff_phone_email", staffPojo.getStaffName()));
         StaffPojo staff = this.getOne(queryWrapper);
+        if (!PasswordSecurityUtil.checkPassword(staffPojo.getStaffPassword(), staff.getStaffPassword(), staff.getSalt())) {
+            return null;
+        }
         return staff;
     }
 
@@ -91,6 +94,8 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implem
      */
     @Override
     public List<StaffBo> findStaffByIdAndItmeId(Integer itmeId, Integer roleId) throws Exception {
+        // 判断员工工作时间是否结束，结束就修改为空闲
+        getBaseMapper().updateStaffStatus();
         List<StaffBo> boList = getBaseMapper().findStaffByIdAndItmeId(itmeId, roleId);
         return boList;
     }

@@ -4,10 +4,12 @@ import com.dj.ssm.pojo.ItmePojo;
 import com.dj.ssm.pojo.StaffBo;
 import com.dj.ssm.service.itme.ItmeService;
 import com.dj.ssm.service.staff.StaffService;
+import com.dj.ssm.utils.PasswordSecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import sun.security.provider.MD5;
 
 import java.util.List;
 
@@ -44,7 +46,9 @@ public class staffPageController {
      * @return
      */
     @RequestMapping("toAdd")
-    public String toAdd () {
+    public String toAdd (Model model) throws Exception{
+        String salt = PasswordSecurityUtil.generateSalt();
+        model.addAttribute("salt", salt);
         return "staff/add_user";
     }
 
@@ -53,7 +57,9 @@ public class staffPageController {
      * @return
      */
     @RequestMapping("toAddStaff")
-    public String toAddStaff () {
+    public String toAddStaff (Model model) throws Exception{
+        String salt = PasswordSecurityUtil.generateSalt();
+        model.addAttribute("salt", salt);
         return "staff/add_staff";
     }
 

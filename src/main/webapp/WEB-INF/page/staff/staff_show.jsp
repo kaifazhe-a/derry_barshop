@@ -79,21 +79,5 @@
             ,content: "<%=request.getContextPath()%>/user/toAdd"
         });
     }
-    // 去商品详细
-    function toShopDetail(proId){
-        window.location.href="<%=request.getContextPath()%>/product/toShopDetail?id="+proId
-    }
-    //去登录页面
-    function toLogin(){
-        layer.open({
-            type: 2,
-            title: '用户登录面页',
-            shadeClose: false,
-            shade: 0.6,
-            area: ['380px', '90%'],
-            content: "<%=request.getContextPath()%>/user/toLogin"
-        });
-    }
-
 </script>
 </html>
