@@ -49,19 +49,19 @@
 </body>
 <script>
     /**
-     * 购买
+     * 购买并支付
      */
     function toBuy() {
         var index = layer.load(1, {
             shade: [0.1, '#fff'] //0.1透明度的白色背景
         });
         $.post(
-            "<%=request.getContextPath()%>/product/buyProduct",
+            "<%=request.getContextPath()%>/turnover/addTurnoverBuyProduct",
             $("#fm").serialize(),
             function (data) {
                 layer.close(index);
                 if (data.code != 200) {
-                    layer.alert("购买失败");
+                    layer.alert(data.msg);
                     return;
                 }
                 layer.alert("购买成功", {
@@ -71,6 +71,8 @@
                     title: '商品购买',
                     shade: 0.5, //遮罩透明度
                     anim: 1, //0-6的动画形式，-1不开启
+                }, function () {
+                    parent.location.href = "<%=request.getContextPath()%>/product/toShow";
                 });
             });
     }

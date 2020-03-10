@@ -2,11 +2,15 @@ package com.dj.ssm.service.turnover.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dj.ssm.mapper.turnover.TurnoverMapper;
+import com.dj.ssm.pojo.ProductPojo;
 import com.dj.ssm.pojo.TurnoverPojo;
+import com.dj.ssm.service.product.ProductService;
 import com.dj.ssm.service.turnover.TurnoverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,6 +18,9 @@ import java.util.List;
  */
 @Service
 public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPojo> implements TurnoverService {
+
+    @Autowired
+    private ProductService productService;
 
     /**
      * 注入营业额 mapper
@@ -40,6 +47,25 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
     public void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception {
         this.save(turnoverPojo);
     }
+
+    /**
+     * 商品消费
+     * @param productPojo
+     */
+    @Override
+    public void addTurnoverBuyProduct(ProductPojo productPojo) throws Exception {
+        if(!StringUtils.isEmpty(productPojo.getProCount())) {
+            TurnoverPojo turnover = new TurnoverPojo();
+            turnover.setStaffId(-1);
+            turnover.setProject(productPojo.getProName()); // 商品名
+            turnover.setPayTime(new Date());
+            turnover.setPayPrice(productPojo.getProPrice()*productPojo.getProCount());
+            turnover.setPayType(8);
+            this.save(turnover);
+        }
+
+    }
+
 
 
 }
