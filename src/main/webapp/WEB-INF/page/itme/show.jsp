@@ -33,6 +33,7 @@
     <tbody id="tbd">
     </tbody>
 </table>
+    <input type='button' value='办理会员卡' onclick='toAddVip()' class='layui-btn layui-btn-fluid'>
     <div id="pageNo"></div>
 </center>
 </body>
@@ -118,5 +119,18 @@
             content: "<%=request.getContextPath()%>/staff/toStaffShow?id="+id
         });
     }
+
+    //去办理会员卡
+   function toAddVip() {
+       layer.open({
+           type: 2,
+           title: '会员卡办理',
+           shadeClose: true,
+           shade: 0.8,
+           anim: 1,
+           area: ['380px', '90%'],
+           content: "<%=request.getContextPath() %>/vipcard/toAddVip"
+       });
+   }
 </script>
 </html>

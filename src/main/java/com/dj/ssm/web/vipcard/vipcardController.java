@@ -45,6 +45,17 @@ public class vipcardController {
         priceSum=upMoney+byId.getPriceSum();
         updateWrapper.set("vip_balance", vipBalance);
         updateWrapper.set("price_sum", priceSum);
+        // 根据累计金额修改等级
+        if(priceSum <= 500){
+            updateWrapper.set("vip_grade", 11);
+        }
+        if(priceSum >500 && priceSum <= 5000){
+            updateWrapper.set("vip_grade", 12);
+        }
+        if(priceSum >5000){
+            updateWrapper.set("vip_grade", 13);
+        }
+
         updateWrapper.eq("id", id);
         vipcardService.update(updateWrapper);
 
@@ -62,5 +73,45 @@ public class vipcardController {
         return new ResultModel<Object>().success("正在充值");
     }
 
+    /**
+     * 会员卡办理
+     */
+    @RequestMapping("addVip")
+    public ResultModel<Object> addVip(String vipName, String vipNum, String vipPass, Double vipMoney) throws Exception{
+        VipCardPojo vip=new VipCardPojo();
+        // 账号姓名密码余额0 会员等级（1贵宾卡充值0.5k,2金卡充值5K,3钻石卡充值10K） 累计0状态1
+        vip.setId(null);
+        vip.setVipCardNumber(vipNum);
+        vip.setVipName(vipName);
+        vip.setVipPassword(vipPass);
+        vip.setVipBalance(vipMoney);
+        if(vipMoney <= 500){
+            vip.setVipGrade(11);
+        }
+        if(vipMoney >500 && vipMoney <= 5000){
+            vip.setVipGrade(12);
+        }
+        if(vipMoney >5000){
+            vip.setVipGrade(13);
+        }
+        vip.setPriceSum(vipMoney);
+        vip.setVipStatus(1);
+        vipcardService.save(vip);
+        return new ResultModel<Object>().success("已办理会员卡");
 
+
+    }
+
+    /**
+     * 会员卡注销
+     */
+    @RequestMapping("delVip")
+    public ResultModel<Object> delVip(Integer id) throws Exception{
+       //根据id修改状态
+        UpdateWrapper<VipCardPojo> update = new UpdateWrapper<VipCardPojo>();
+        update.set("vip_status", 0);
+        update.eq("id", id);
+        vipcardService.update(update);
+        return new ResultModel<Object>().success("已注销");
+    }
 }
