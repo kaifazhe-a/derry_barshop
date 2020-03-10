@@ -97,7 +97,7 @@ public class vipcardController {
         vip.setPriceSum(vipMoney);
         vip.setVipStatus(1);
         vipcardService.save(vip);
-        return new ResultModel<Object>().success("已办理会员卡");
+        return new ResultModel<Object>().success("成功办理会员卡");
 
 
     }

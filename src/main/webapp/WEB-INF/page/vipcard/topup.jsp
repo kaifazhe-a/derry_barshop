@@ -37,8 +37,12 @@
             <th><input type="text" name="upMoney"></th>
         </tr>
         <tr style="color:#DB7093">
-            <th>充值员工编号</th>
-            <th><input type="text" name="peopleId"></th>
+            <th>充值员工</th>
+            <th><select name="">
+                <c:forEach items="${list}" var="list">
+                    <option value="${list.id}">${list.staffName}</option>
+                </c:forEach>
+            </select></th>
         </tr>
         </th>
         </tr>

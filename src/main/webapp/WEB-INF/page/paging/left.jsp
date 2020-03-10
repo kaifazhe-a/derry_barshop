@@ -14,7 +14,6 @@
 </head>
 <body bgcolor="LightCyan">
 <div id="tree" class="ztree"></div>
-
 <%--<div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -29,7 +28,6 @@
      </ul>&ndash;%&gt;
     </div>
 </div>--%>
-
 </body>
 <script type="text/javascript">
     var setting = {
@@ -52,7 +50,6 @@
                 }
             }
         }
-
     };
     // 加载参数
     var zNodes =[

@@ -82,6 +82,10 @@ public class StaffBo {
      */
     private Date workTime;
 
+    /**
+     * 项目时间
+     */
+    private Integer itmeTime;
 
 
 

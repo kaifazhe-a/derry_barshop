@@ -6,6 +6,7 @@ import com.dj.ssm.pojo.StaffPojo;
 import com.dj.ssm.pojo.TurnoverPojo;
 import com.dj.ssm.service.product.ProductService;
 import com.dj.ssm.service.turnover.TurnoverService;
+import com.dj.ssm.utils.DateUtil;
 import com.dj.ssm.utils.QiNiuYunUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
@@ -16,10 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 营业额
@@ -47,15 +45,16 @@ public class TurnoverController {
      * @return
      */
     @RequestMapping("addTimeTurnover")
-    public ResultModel<Object> timeTurnover(Integer staffId, Double itmePrice, String itmeName, Integer payType, HttpSession session) throws Exception {
+    public ResultModel<Object> timeTurnover(Integer staffId, Double itmePrice, String itmeName
+            , Integer payType, Integer itmeTime, HttpSession session) throws Exception {
         TurnoverPojo turnoverPojo = new TurnoverPojo();
-        StaffPojo staff = (StaffPojo) session.getAttribute("staff");
+        Date date = DateUtil.addDate(itmeTime, Calendar.MINUTE);
         turnoverPojo.setPayPrice(itmePrice);
         turnoverPojo.setStaffId(staffId);
         turnoverPojo.setProject(itmeName);
         turnoverPojo.setPayType(payType);
         turnoverPojo.setPayTime(new Date());
-        turnoverService.addTimeTurnover(turnoverPojo);
+        turnoverService.addTimeTurnover(turnoverPojo, date);
         return new ResultModel<>().success();
     }
 
