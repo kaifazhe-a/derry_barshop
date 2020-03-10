@@ -1,6 +1,7 @@
 package com.dj.ssm.service.turnover;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.dj.ssm.pojo.ProductPojo;
 import com.dj.ssm.pojo.TurnoverPojo;
 
 import java.util.Date;
@@ -21,5 +22,13 @@ public interface TurnoverService extends IService<TurnoverPojo> {
      * 项目消费
      * @return
      */
-    void addTimeTurnover(TurnoverPojo turnoverPojo, Date date) throws Exception;
+    void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception;
+
+    /**
+     * 商品消费
+     * @param productPojo
+     */
+    void addTurnoverBuyProduct(ProductPojo productPojo) throws Exception;
+
+
 }

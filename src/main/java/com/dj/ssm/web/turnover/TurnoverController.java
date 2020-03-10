@@ -9,6 +9,8 @@ import com.dj.ssm.service.turnover.TurnoverService;
 import com.dj.ssm.utils.DateUtil;
 import com.dj.ssm.utils.QiNiuYunUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,10 +54,21 @@ public class TurnoverController {
         turnoverPojo.setProject(itmeName);
         turnoverPojo.setPayType(payType);
         turnoverPojo.setPayTime(new Date());
-        turnoverService.addTimeTurnover(turnoverPojo, date);
+        turnoverService.addTimeTurnover(turnoverPojo);
         return new ResultModel<>().success();
     }
 
+    /**
+     * 商品消费
+     */
+    @RequestMapping("addTurnoverBuyProduct")
+    public ResultModel<Object> addTurnoverBuyProduct(ProductPojo productPojo) throws Exception {
+        if(StringUtils.isEmpty(productPojo.getProCount())) {
+            return new ResultModel<>().error("请填写购买数量");
+        }
+        turnoverService.addTurnoverBuyProduct(productPojo);
+        return new ResultModel<>().success();
+    }
 
 
 }

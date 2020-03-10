@@ -3,13 +3,14 @@ package com.dj.ssm.service.turnover.impl;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dj.ssm.mapper.turnover.TurnoverMapper;
+import com.dj.ssm.pojo.ProductPojo;
 import com.dj.ssm.pojo.StaffPojo;
 import com.dj.ssm.pojo.TurnoverPojo;
-import com.dj.ssm.service.staff.StaffRoleService;
 import com.dj.ssm.service.staff.StaffService;
 import com.dj.ssm.service.turnover.TurnoverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,9 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
     @Autowired
     private TurnoverMapper turnoverMapper;
 
+    /**
+     * 员工表 service
+     */
     @Autowired
     private StaffService staffService;
 
@@ -45,14 +49,33 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
      * @throws Exception
      */
     @Override
-    public void addTimeTurnover(TurnoverPojo turnoverPojo, Date date) throws Exception {
+    public void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception {
         this.save(turnoverPojo);
         UpdateWrapper<StaffPojo> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("staff_status", 3);
-        updateWrapper.set("work_time", date);
+        updateWrapper.set("work_time", new Date());
         updateWrapper.eq("id", turnoverPojo.getStaffId());
         staffService.update(updateWrapper);
     }
+
+    /**
+     * 商品消费
+     * @param productPojo
+     */
+    @Override
+    public void addTurnoverBuyProduct(ProductPojo productPojo) throws Exception {
+        if(!StringUtils.isEmpty(productPojo.getProCount())) {
+            TurnoverPojo turnover = new TurnoverPojo();
+            turnover.setStaffId(-1);
+            turnover.setProject(productPojo.getProName()); // 商品名
+            turnover.setPayTime(new Date());
+            turnover.setPayPrice(productPojo.getProPrice()*productPojo.getProCount());
+            turnover.setPayType(8);
+            this.save(turnover);
+        }
+
+    }
+
 
 
 }
