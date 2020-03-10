@@ -21,10 +21,6 @@ public class TurnoverPojo {
      */
     private Integer staffId;
 
-    /**
-     * 员工姓名
-     */
-    private String staffName;
 
     /**
      * 消费项目

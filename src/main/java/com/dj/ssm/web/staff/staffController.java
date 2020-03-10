@@ -49,6 +49,9 @@ public class staffController {
         Assert.hasText(staffPojo.getStaffName(), "请填写用户名或密码");
         Assert.hasText(staffPojo.getStaffPassword(), "请填写用户名或密码");
         StaffPojo staffBo = staffService.findStaffNameAndPwd(staffPojo);
+        if (null == staffBo) {
+            return new ResultModel<>().error("密码或账号错误");
+        }
         session.setAttribute("staff", staffBo);
         return new ResultModel<>().success();
     }

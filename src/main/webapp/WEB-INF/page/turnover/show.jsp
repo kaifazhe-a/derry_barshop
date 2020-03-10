@@ -11,6 +11,10 @@
 </head>
 <body bgcolor="LightCyan">
 <center>
+    <form id="frm">
+        <input type="hidden" value="1" name="pageNo" id="page"/>
+    </form>
+<h2>店内总营业额👇</h2><input type="button" value="￥" id="Amount" class="layui-btn layui-btn-warm"/>
     <table class="layui-table">
         <colgroup>
             <col width="150">
@@ -39,18 +43,20 @@
     function findProduct(){
         show();
     }
+
     // 营业额展示
     function show() {
         $.post(
         "<%=request.getContextPath()%>/turnover/show",
-        {},
+        $("#frm").serialize(),
         function(data) {
             var html="";
             var pageHtml="";
+            var Amount = 0;
             for (var i = 0; i < data.data.length; i++) {
                     var tur = data.data[i];
                     html += "<tr>";
-                    if(tur.staffId === -1) {
+                    if(tur.staffId == -1) {
                         html += "<td>自动收款机（IA）</td>"
                     } else {
                         html += "<td>"+tur.staffName+"</td>";
@@ -60,8 +66,10 @@
                     html += "<td>￥"+tur.payPrice+"</td>";
                     html += "<td>"+tur.dictName+"</td>";
                     html += "</tr>";
+                    Amount += tur.payPrice;
                 }
                 $("#tbd").html(html);
+                $("#Amount").val(Amount)
                 var pageNo = $("#page").val();
                 var pages = data.data.pages;
                 pageHtml+="<input type='button' onclick='page("+(parseInt(pageNo)-1)+","+pages+")' value='上一页' /> <input type='button' onclick='page("+(parseInt(pageNo)+1)+","+pages+")' value='下一页' />"

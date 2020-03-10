@@ -39,9 +39,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <span style="color: #af0000">购买数量:</span>
         <label>
-            <input type="number" id="proCount" name="proCount" onblur="toupdate(this.value)">
+            <%--<input type="number" id="proCount" name="proCount" onblur="toupdate(this.value)">--%>
             <input type="button" value="-" onclick="minus()">
-            <input type="text" name="skuCount" value="1" id="skuCount" size="15">
+            <input type="text" name="proCount" value="1" id="proCount" size="15">
             <input type="button" value="+" onclick="plus()">
         </label>
         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -53,8 +53,8 @@
 <script>
     //减
     function minus() {
-        if ($("#skuCount").val() != 1) {
-            $("#skuCount").val((parseInt($("#skuCount").val()) - 1));
+        if ($("#proCount").val() != 1) {
+            $("#proCount").val((parseInt($("#proCount").val()) - 1));
         }else {
             layer.msg("最低为1")
         }
@@ -62,8 +62,8 @@
 
     //加
     function plus() {
-        if ($("#skuCount").val() != 200) {
-            $("#skuCount").val((parseInt($("#skuCount").val()) + 1));
+        if ($("#proCount").val() != 200) {
+            $("#proCount").val((parseInt($("#proCount").val()) + 1));
         }else {
             layer.msg("不可超过200")
         }

@@ -48,7 +48,6 @@
 </body>
 <script type="text/javascript">
     function login(){
-        alert($("#pwd").val());
        $("#pwd").val(md5($("#pwd").val()));
         var index = layer.load();
         $.post(
@@ -68,7 +67,7 @@
                             icon: 2,
                             time: 1500 //2秒关闭（如果不配置，默认是3秒）
                         }, function () {
-                            parent.location.href = "<%=request.getContextPath()%>/user/toLogin"
+                            parent.location.href = "<%=request.getContextPath()%>/staff/toLogin"
                         });
                     }
             }

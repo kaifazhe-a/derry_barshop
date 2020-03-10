@@ -1,5 +1,7 @@
 package com.dj.ssm.web.turnover;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dj.ssm.config.ResultModel;
 import com.dj.ssm.pojo.ProductPojo;
 import com.dj.ssm.pojo.StaffPojo;
@@ -35,7 +37,10 @@ public class TurnoverController {
      * @return
      */
     @RequestMapping("show")
-    public ResultModel<Object> show() throws Exception {
+    public ResultModel<Object> show(Integer pageNo) throws Exception {
+        IPage<TurnoverPojo> page = new Page();
+        page.setCurrent(pageNo); // 当前页数
+        page.setSize(2);
         List<TurnoverPojo> list = turnoverService.findTurnoverAll();
         return new ResultModel<>().success(list);
     }
