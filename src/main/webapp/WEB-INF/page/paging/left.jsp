@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/res/layui/css/layui.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/res/zTree/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css"/>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/res/zTree/zTree_v3/css/zTreeStyle/zTreeStyle.css"/>
     <script type="text/javascript" src="<%=request.getContextPath()%>/res/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/res/zTree/zTree_v3/js/jquery.ztree.all.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/res/layui/layui.all.js"></script>
@@ -39,7 +39,7 @@
             },
             key: {
                 name: "resourceName",
-                url: "url"
+                url: "xUrl"
             }
         },
         callback: { // 回调函数 1标准的 js event 对象 ; 2对应 zTree 的 treeId，便于用户操控;  3被点击的节点 JSON 数据对象
@@ -47,14 +47,13 @@
                 // 判断是否是父级
                 if (!treeNode.isParent){
                     parent.right.location.href="<%=request.getContextPath()%>" + treeNode.url
+                    parent.right.location.href="<%=request.getContextPath()%>" + treeNode.url
                 }
             }
         }
+
     };
-    // 加载参数
-    var zNodes =[
-    ];
-    $(document).ready(function(){
+    $(function(){
         $.post(
             "<%=request.getContextPath()%>/to/left1",
             {},

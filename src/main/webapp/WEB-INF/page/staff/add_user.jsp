@@ -37,6 +37,7 @@
             <td><input type="text" name="staffPhoneEmail" id="staffPhoneEmail" /><br/></td>
         </tr>
                 <input type="hidden" name="staffStatus" value="7">
+                <input type="hidden" name="roleId" value="7">
         </tr>
         <tr>
             <th colspan="2"><input type="submit" value="
