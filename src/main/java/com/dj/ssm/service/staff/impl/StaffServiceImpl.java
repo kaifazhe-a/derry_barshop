@@ -60,6 +60,10 @@ public class StaffServiceImpl extends ServiceImpl<StaffMapper, StaffPojo> implem
     @Override
     public void addStaffMassage(StaffPojo staffPojo) throws Exception {
         this.save(staffPojo);
+        StaffRolePojo staffRolePojo = new StaffRolePojo();
+        staffRolePojo.setStaffId(staffPojo.getId());
+        staffRolePojo.setRoleId(staffPojo.getRoleId());
+        staffRoleService.save(staffRolePojo);
     }
 
     /**

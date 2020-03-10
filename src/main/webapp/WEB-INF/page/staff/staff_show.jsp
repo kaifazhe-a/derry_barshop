@@ -39,6 +39,7 @@
         <span >项目价格(元)：</span><span style="color: #6362ff">￥${list.itmePrice}</span><br>
         <span >工作状态：</span><span style="color: #6362ff">${list.baseStaffStatus}</span><br>--%>
         <input type="hidden" value="${list.roleName}" id="itemName">
+        <input type="hidden" value="${list.itmeTime}" id="itmeTime">
     </c:forEach>
 
 </form>
@@ -54,12 +55,12 @@
                 "staffId":values[0],
                 "itmePrice":values[1],
                 "itmeName":$("#itemName").val(),
+                "itmeTime":$("#itmeTime").val(),
                 "payType":8
             },
             function (data) {
-                layer.close(index);
                 if(data.code == 200){
-                    show();
+                    window.location.href="<%=request.getContextPath()%>/staff/toStaffShow?id="+'${id}'
                 } else {
                     alert(data.msg);
                 }

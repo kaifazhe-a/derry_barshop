@@ -66,6 +66,7 @@ public class staffPageController {
         ItmePojo itmePojo = itmeService.findItmeById(id);
         List<StaffBo> boList = staffService.findStaffByIdAndItmeId(itmePojo.getId(), itmePojo.getRoleId());
         model.addAttribute("boList", boList);
+        model.addAttribute("id", id);
         return "staff/staff_show";
     }
 

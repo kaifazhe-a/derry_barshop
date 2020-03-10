@@ -1,12 +1,17 @@
 package com.dj.ssm.service.turnover.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dj.ssm.mapper.turnover.TurnoverMapper;
+import com.dj.ssm.pojo.StaffPojo;
 import com.dj.ssm.pojo.TurnoverPojo;
+import com.dj.ssm.service.staff.StaffRoleService;
+import com.dj.ssm.service.staff.StaffService;
 import com.dj.ssm.service.turnover.TurnoverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +25,9 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
      */
     @Autowired
     private TurnoverMapper turnoverMapper;
+
+    @Autowired
+    private StaffService staffService;
 
     /**
      * 营业额
@@ -37,8 +45,13 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
      * @throws Exception
      */
     @Override
-    public void addTimeTurnover(TurnoverPojo turnoverPojo) throws Exception {
+    public void addTimeTurnover(TurnoverPojo turnoverPojo, Date date) throws Exception {
         this.save(turnoverPojo);
+        UpdateWrapper<StaffPojo> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.set("staff_status", 3);
+        updateWrapper.set("work_time", date);
+        updateWrapper.eq("id", turnoverPojo.getStaffId());
+        staffService.update(updateWrapper);
     }
 
 
