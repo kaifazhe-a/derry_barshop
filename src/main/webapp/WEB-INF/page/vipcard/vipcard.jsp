@@ -54,10 +54,24 @@
                     html += "<td>"+vip.vipCardNumber+"</td>";
                     html += "<td>"+vip.vipName+"</td>";
                     html += "<td>"+vip.vipBalance+"</td>";
-                    html += "<td>"+vip.vipGrade+"</td>";
+
+                    if(vip.vipGrade == 11){
+                        html += "<td>贵宾卡</td>";
+                    }
+                    if(vip.vipGrade == 12){
+                        html += "<td>金卡</td>";
+                    }
+                    if(vip.vipGrade == 13){
+                        html += "<td>钻石卡</td>";
+                    }
                     html += "<td>"+vip.priceSum+"</td>";
-                    html += "<td>"+vip.vipStatus+"</td>";
-                    html += "<td><input type='button' value='充值' onclick='addMoney("+vip.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
+                    if(vip.vipStatus == 1){
+                        html += "<td>使用中</td>";
+                    }
+                    if(vip.vipStatus == 0){
+                        html += "<td>已注销</td>";
+                    }
+                    html += "<td><input type='button' value='充值' onclick='addMoney("+vip.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/><input type='button' value='注销' onclick='delVip("+vip.id+")'class='layui-btn layui-btn-warm layui-btn-radius\'/></td>";
                     html += "</tr>";
                 }
                 $("#tbd").html(html);
@@ -74,6 +88,18 @@
             anim: 1,
             area: ['380px', '90%'],
             content: "<%=request.getContextPath() %>/vipcard/toTopUp?id="+id
+        });
+    }
+
+    function delVip(id) {
+        layer.open({
+            type: 2,
+            title: '注销会员',
+            shadeClose: true,
+            shade: 0.8,
+            anim: 1,
+            area: ['380px', '90%'],
+            content: "<%=request.getContextPath() %>/vipcard/toDelVip?id="+id
         });
     }
 </script>
