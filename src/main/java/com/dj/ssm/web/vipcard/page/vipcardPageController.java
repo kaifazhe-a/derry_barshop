@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/vipcard")
+@RequestMapping("/vipcard/")
 public class vipcardPageController {
     @Autowired
     private VipcardService vipcardService;

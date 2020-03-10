@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dj.ssm.mapper.resource.ResourceMapper">
+
+    <select id="findById" resultType="com.dj.ssm.pojo.ResourcePojo">
+        SELECT
+            res.*
+        FROM
+            barber_staff_role ro
+        LEFT JOIN barber_role_resource re ON ro.role_id = re.role_id
+        LEFT JOIN barber_resource res ON re.resource_id = res.id
+        WHERE
+            ro.staff_id = #{userId}
+    </select>
+</mapper>
