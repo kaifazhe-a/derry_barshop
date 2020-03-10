@@ -1,9 +1,11 @@
 package com.dj.ssm.web.vipcard.page;
 
+import com.dj.ssm.config.ResourceConstant;
 import com.dj.ssm.pojo.StaffBo;
 import com.dj.ssm.pojo.VipCardPojo;
 import com.dj.ssm.service.staff.StaffService;
 import com.dj.ssm.service.vipcard.VipcardService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,7 @@ public class vipcardPageController {
      * 去展示会员卡信息
      */
     @RequestMapping("toShowVipcard")
+    @RequiresPermissions(ResourceConstant.VIPCARD_PATH)
     public String toShowVipcard(){
         return "/vipcard/vipcard";
     }

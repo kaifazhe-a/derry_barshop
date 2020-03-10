@@ -5,6 +5,9 @@ import com.dj.ssm.pojo.StaffBo;
 import com.dj.ssm.pojo.StaffPojo;
 import com.dj.ssm.service.staff.StaffService;
 import com.dj.ssm.utils.QiNiuYunUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +56,11 @@ public class staffController {
             return new ResultModel<>().error("密码或账号错误");
         }
         session.setAttribute("staff", staffBo);
+        // 获得主体
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(staffPojo.getStaffName(), staffPojo.getStaffPassword());
+        //认证
+        subject.login(token);
         return new ResultModel<>().success();
     }
 
