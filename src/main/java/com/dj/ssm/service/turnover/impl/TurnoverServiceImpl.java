@@ -10,7 +10,6 @@ import com.dj.ssm.service.staff.StaffService;
 import com.dj.ssm.service.turnover.TurnoverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -63,16 +62,14 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
      * @param productPojo
      */
     @Override
-    public void addTurnoverBuyProduct(ProductPojo productPojo) throws Exception {
-        if(!StringUtils.isEmpty(productPojo.getProCount())) {
+    public void addTurnoverBuyProduct(ProductPojo productPojo, Integer proCount) throws Exception {
             TurnoverPojo turnover = new TurnoverPojo();
             turnover.setStaffId(-1);
             turnover.setProject(productPojo.getProName()); // 商品名
             turnover.setPayTime(new Date());
-            turnover.setPayPrice(productPojo.getProPrice()*productPojo.getProCount());
+            turnover.setPayPrice(productPojo.getProPrice()*proCount);
             turnover.setPayType(9);
             this.save(turnover);
-        }
 
     }
 

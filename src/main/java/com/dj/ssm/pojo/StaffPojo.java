@@ -40,11 +40,6 @@ public class StaffPojo {
     private String staffPassword;
 
     /**
-     * 手机号/邮箱验证码
-     */
-    private String phoneEmailCode;
-
-    /**
      * 员工头像
      */
     private String staffImg;

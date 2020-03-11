@@ -39,7 +39,6 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <span style="color: #af0000">购买数量:</span>
         <label>
-            <%--<input type="number" id="proCount" name="proCount" onblur="toupdate(this.value)">--%>
             <input type="button" value="-" onclick="minus()">
             <input type="text" name="proCount" value="1" id="proCount" size="15">
             <input type="button" value="+" onclick="plus()">
@@ -72,6 +71,7 @@
      * 购买并支付
      */
     function toBuy() {
+        var proCount = $("#proCount").val;
         var index = layer.load(1, {
             shade: [0.1, '#fff'] //0.1透明度的白色背景
         });

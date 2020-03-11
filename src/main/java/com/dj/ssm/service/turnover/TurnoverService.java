@@ -28,7 +28,7 @@ public interface TurnoverService extends IService<TurnoverPojo> {
      * 商品消费
      * @param productPojo
      */
-    void addTurnoverBuyProduct(ProductPojo productPojo) throws Exception;
+    void addTurnoverBuyProduct(ProductPojo productPojo, Integer proCount) throws Exception;
 
 
 }

@@ -42,10 +42,6 @@
             <th>商品功效</th>
             <td><input type="text" name="proEffect"/></td>
         </tr>
-        <%--<tr>
-            <th>库存</th>
-            <td><input type="text" name="proCount"/></td>
-        </tr>--%>
     </table>
     <input type="button" onclick="addProduct()" value = "入库" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-primary"/>
 </form>

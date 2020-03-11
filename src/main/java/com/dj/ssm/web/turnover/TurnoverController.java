@@ -67,11 +67,8 @@ public class TurnoverController {
      * 商品消费
      */
     @RequestMapping("addTurnoverBuyProduct")
-    public ResultModel<Object> addTurnoverBuyProduct(ProductPojo productPojo) throws Exception {
-        if(StringUtils.isEmpty(productPojo.getProCount())) {
-            return new ResultModel<>().error("请填写购买数量");
-        }
-        turnoverService.addTurnoverBuyProduct(productPojo);
+    public ResultModel<Object> addTurnoverBuyProduct(ProductPojo productPojo, Integer proCount) throws Exception {
+        turnoverService.addTurnoverBuyProduct(productPojo, proCount);
         return new ResultModel<>().success();
     }
 

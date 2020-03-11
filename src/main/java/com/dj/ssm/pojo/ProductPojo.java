@@ -43,11 +43,6 @@ public class ProductPojo {
     private String proEffect;
 
     /**
-     * 库存数量
-     */
-    private Integer proCount;
-
-    /**
      * 商品状态(0下架, 1上架)
      */
     private Integer proStatus;
