@@ -27,11 +27,11 @@
         </tr>
         <tr>
             <th>密码：</th>
-            <td><input type="text" name="staffPassword" id="pwd" /><br></td>
+            <td><input type="password" name="staffPassword" id="pwd" /><br></td>
         </tr>
         <tr>
             <th>确认密码：</th>
-            <td><input type="text" name="conPwd" id="conPwd" /><br/></td>
+            <td><input type="password" name="conPwd" id="conPwd" /><br/></td>
         </tr>
         <tr>
             <th>手机号：</th>
@@ -41,8 +41,8 @@
             <th>理发师级别：</th>
             <td><select name="roleId">
                 <option value="">--请选择--</option>
-                <option value="4">资深理发师</option>
-                <option value="5">首席设计师</option>
+                <option value="5">资深理发师</option>
+                <option value="4">首席设计师</option>
                 <option value="6">打酱油学徒</option>
             </select></td>
         </tr>

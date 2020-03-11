@@ -3,9 +3,7 @@ package com.dj.ssm.web.itme.page;
 import com.dj.ssm.config.ResourceConstant;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 理发项目Controller
@@ -31,5 +29,7 @@ public class ItmePageController {
     public String toAdd() {
         return "itme/add";
     }
+
+
 
 }

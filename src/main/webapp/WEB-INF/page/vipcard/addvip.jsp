@@ -30,11 +30,11 @@
         </tr>
         <tr style="color:#DB7093">
             <th>会员密码</th>
-            <th><input type="text" name="vipPass"></th>
+            <th><input type="password" name="vipPass"></th>
         </tr>
         <tr style="color:#DB7093">
             <th>会员充值</th>
-            <th><input type="text" name="vipMoney"></th>
+            <th><input type="text" name="vipMoney" value="0" readonly="readonly"></th>
         </tr>
         </th>
         </tr>

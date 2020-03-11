@@ -21,18 +21,18 @@
 
     <dependencies>
     <!-- shiro -->
-    <!-- <dependency>
+    <dependency>
          <groupId>org.apache.shiro</groupId>
          <artifactId>shiro-spring-boot-starter</artifactId>
          <version>1.4.2</version>
-     </dependency>-->
+     </dependency>
 
     <!-- Shiro WEB 项目依赖 -->
-     <!--<dependency>
+     <dependency>
          <groupId>org.apache.shiro</groupId>
          <artifactId>shiro-spring-boot-web-starter</artifactId>
          <version>1.4.2</version>
-     </dependency>-->
+     </dependency>
 
         <!-- 七牛云 -->
         <dependency>
@@ -72,23 +72,23 @@
     </dependency>
 
     <!-- 阿里云短信 -->
-   <!-- <dependency>
+   <dependency>
         <groupId>com.aliyun</groupId>
         <artifactId>aliyun-java-sdk-core</artifactId>
-        <version>3.3.1</version> &lt;!&ndash; 注：如提示报错，先升级基础包版，无法解决可联系技术支持 &ndash;&gt;
+        <version>3.3.1</version>
     </dependency>
     <dependency>
         <groupId>com.aliyun</groupId>
         <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
         <version>1.0.0</version>
-    </dependency>-->
+    </dependency>
 
     <!--java mail-->
-    <!--<dependency>
+    <dependency>
         <groupId>javax.mail</groupId>
         <artifactId>mail</artifactId>
         <version>1.4.7</version>
-    </dependency>-->
+    </dependency>
 
     <!-- SpringMVC -->
     <dependency>
