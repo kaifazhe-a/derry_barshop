@@ -13,17 +13,18 @@
 <head>
     <title>登录</title>
 </head>
-<body>
+<body background="http://q5w0yme1k.bkt.clouddn.com/249ebae168084dae84f80a36777c9947"style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+<div><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 <center>
     <form id="frm">
         <table border="0px" cellpadding="10" cellspacing="0">
             <tr>
-                <td>用户名：</td>
+                <td><span style="color: rgb(253,251,255)">用户名：</span></td>
                 <td><input type="text" name="staffName" id="userName" placeholder="用户名/手机号" size="40"/></td>
             </tr>
             <tr>
-                <td>密&nbsp;&nbsp;码：</td>
-                <td><input type="password" name="staffPassword" id="pwd" size="40"/></td>
+                <td><span style="color: rgb(253,251,255)">密&nbsp;&nbsp;码：</span></td>
+                <td><input type="password" name="staffPassword" placeholder="填写密码" id="pwd" size="40"/></td>
             </tr>
             <tr>
                 <td>

@@ -56,6 +56,7 @@ public class TurnoverController {
         Date date = DateUtil.addDate(itmeTime, Calendar.MINUTE);
         turnoverPojo.setPayPrice(itmePrice);
         turnoverPojo.setStaffId(staffId);
+        turnoverPojo.setPayTime(new Date());
         turnoverPojo.setProject(itmeName);
         turnoverPojo.setPayType(payType);
         turnoverService.addTimeTurnover(turnoverPojo, date);

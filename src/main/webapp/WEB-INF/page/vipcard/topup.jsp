@@ -38,7 +38,7 @@
         </tr>
         <tr style="color:#DB7093">
             <th>充值员工</th>
-            <th><select name="">
+            <th><select name="peopleId">
                 <c:forEach items="${list}" var="list">
                     <option value="${list.id}">${list.staffName}</option>
                 </c:forEach>

@@ -9,8 +9,10 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/res/layui/layui.all.js"></script>
 <title>Insert title here</title>
 </head>
-<body bgcolor="LightCyan">
-	<center><h1>欢迎来到德瑞家的理发店！！！</h1></center>
+<body bgcolor="LightCyan" background="http://q5w0yme1k.bkt.clouddn.com/0ab9b201883c4efb8ec9d059cfa30372"
+      style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+<div><br><br><br><br><br><br><br><br><br></div>
+<center><span style="color: #00FF00"><h1>&nbsp;&nbsp;&nbsp;👉欢迎来到德瑞家的理发店👈</h1></span></center>
 </body>
 <script type="text/javascript">
 

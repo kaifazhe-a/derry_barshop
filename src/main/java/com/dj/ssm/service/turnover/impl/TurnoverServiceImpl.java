@@ -70,7 +70,7 @@ public class TurnoverServiceImpl extends ServiceImpl<TurnoverMapper, TurnoverPoj
             turnover.setProject(productPojo.getProName()); // 商品名
             turnover.setPayTime(new Date());
             turnover.setPayPrice(productPojo.getProPrice()*productPojo.getProCount());
-            turnover.setPayType(8);
+            turnover.setPayType(9);
             this.save(turnover);
         }
 

@@ -66,7 +66,7 @@ public class vipcardController {
         turnoverPojo.setProject("会员卡充值");
         turnoverPojo.setPayTime(date);
         turnoverPojo.setPayPrice(upMoney);
-        turnoverPojo.setPayType(8);
+        turnoverPojo.setPayType(7);
         turnoverService.save(turnoverPojo);
 
 
