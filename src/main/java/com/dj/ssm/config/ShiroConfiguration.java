@@ -65,6 +65,7 @@ public class ShiroConfiguration {
         filters.put("/staff/toAdd", "anon"); // 店内项目展示
         filters.put("/staff/toLogin", "anon"); // 店内项目展示
         filters.put("/staff/login", "anon"); // 店内项目展示
+        filters.put("/staff/before/deWeight", "anon"); // 店内项目展示
         filters.put("/res/**", "anon"); // 静态资源
         // authc 表示必须认证才可访问
         filters.put("/**", "authc");

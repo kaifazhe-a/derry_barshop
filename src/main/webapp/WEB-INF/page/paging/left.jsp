@@ -47,7 +47,6 @@
                 // 判断是否是父级
                 if (!treeNode.isParent){
                     parent.right.location.href="<%=request.getContextPath()%>" + treeNode.url
-                    parent.right.location.href="<%=request.getContextPath()%>" + treeNode.url
                 }
             }
         }

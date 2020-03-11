@@ -72,7 +72,6 @@
                 $("#Amount").val(Amount)
                 var pageNo = $("#page").val();
                 var pages = data.data.pages;
-                pageHtml+="<input type='button' onclick='page("+(parseInt(pageNo)-1)+","+pages+")' value='上一页' /> <input type='button' onclick='page("+(parseInt(pageNo)+1)+","+pages+")' value='下一页' />"
                 $("#pageNo").html(pageHtml)
         })
     }

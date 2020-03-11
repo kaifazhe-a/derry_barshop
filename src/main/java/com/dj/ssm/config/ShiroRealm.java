@@ -14,6 +14,7 @@ import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -30,13 +31,13 @@ public class ShiroRealm extends AuthorizingRealm {
 /**
      * 用户服务
      */
-    @Reference
+    @Autowired
     private StaffService staffService;
 
     /**
      * 资源服务
      */
-    @Reference
+    @Autowired
     private ResourceService resourceService;
 
     /**
